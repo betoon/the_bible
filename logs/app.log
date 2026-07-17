@@ -1,0 +1,410 @@
+2026-06-27 14:56:23,776 - bible_app.smoke - INFO - logging smoke test
+2026-06-27 14:56:23,819 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 14:56:23,820 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 14:56:24,820 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 14:56:24,821 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 14:56:24,824 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 14:56:24,826 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 14:56:24,828 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-145624
+2026-06-27 14:56:37,216 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 14:56:37,217 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 14:56:38,217 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 14:56:38,218 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 14:56:38,221 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 14:56:38,223 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 14:56:38,224 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-145638
+2026-06-27 14:57:09,932 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 14:57:09,933 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 14:57:09,933 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 14:57:09,933 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 14:57:09,936 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 14:57:09,938 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 14:57:09,939 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-145709
+2026-06-27 15:01:06,371 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:01:06,372 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:01:06,372 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:01:06,372 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:01:06,375 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:01:06,376 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:01:06,377 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-150106
+2026-06-27 15:01:39,183 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:01:39,184 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:01:39,184 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:01:39,184 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:01:39,187 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:01:39,189 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:01:39,190 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-150139
+2026-06-27 15:07:07,148 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-150707 from work\source_data
+2026-06-27 15:07:07,153 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-150707-1 from work\source_data
+2026-06-27 15:07:07,154 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-150707-1
+2026-06-27 15:07:07,157 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:07:07,158 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:07:07,158 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:07:07,158 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:07:07,161 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:07:07,163 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:07:07,165 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-150707
+2026-06-27 15:07:37,034 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-150737 from work\source_data
+2026-06-27 15:07:37,038 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-150737-1 from work\source_data
+2026-06-27 15:07:37,039 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-150737
+2026-06-27 15:07:37,042 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:07:37,042 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:07:37,042 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:07:37,043 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:07:37,045 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:07:37,047 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:07:37,049 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-150737
+2026-06-27 15:07:37,069 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-150737.json
+2026-06-27 15:07:37,069 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:12:48,118 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151248 from work\source_data
+2026-06-27 15:12:48,122 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151248-1 from work\source_data
+2026-06-27 15:12:48,123 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-151248
+2026-06-27 15:12:48,126 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:12:48,126 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:12:48,127 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:12:48,127 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:12:48,145 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:12:48,147 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:12:48,149 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-151248
+2026-06-27 15:12:48,170 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-151248.json
+2026-06-27 15:12:48,171 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:18:02,259 - bible_app.utils.background - ERROR - Background task failed
+Traceback (most recent call last):
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\bible_app\utils\background.py", line 22, in done
+    result = completed.result()
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 85, in <lambda>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=errors.append)
+                                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 85, in <genexpr>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=errors.append)
+RuntimeError: bad
+2026-06-27 15:18:02,268 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151802 from work\source_data
+2026-06-27 15:18:02,299 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151802-1 from work\source_data
+2026-06-27 15:18:02,300 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-151802
+2026-06-27 15:18:02,302 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:18:02,303 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:18:02,303 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:18:02,304 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:18:02,313 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:18:02,314 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:18:02,316 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-151802
+2026-06-27 15:18:02,337 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-151802.json
+2026-06-27 15:18:02,338 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:19:20,915 - bible_app.utils.background - ERROR - Background task failed
+Traceback (most recent call last):
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\bible_app\utils\background.py", line 22, in done
+    result = completed.result()
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 85, in <lambda>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=errors.append)
+                                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 85, in <genexpr>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=errors.append)
+RuntimeError: bad
+2026-06-27 15:19:20,924 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151920 from work\source_data
+2026-06-27 15:19:20,928 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151920-1 from work\source_data
+2026-06-27 15:19:20,929 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-151920
+2026-06-27 15:19:20,932 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:19:20,932 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:19:20,932 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:19:20,932 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:19:20,941 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:19:20,943 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:19:20,945 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-151920
+2026-06-27 15:19:20,967 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-151920.json
+2026-06-27 15:19:20,967 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:19:46,315 - bible_app.utils.background - ERROR - Background task failed
+Traceback (most recent call last):
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\bible_app\utils\background.py", line 22, in done
+    result = completed.result()
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 97, in <lambda>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=record_error)
+                                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 97, in <genexpr>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=record_error)
+RuntimeError: bad
+2026-06-27 15:19:46,326 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151946 from work\source_data
+2026-06-27 15:19:46,330 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-151946-1 from work\source_data
+2026-06-27 15:19:46,331 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-151946
+2026-06-27 15:19:46,334 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:19:46,334 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:19:46,334 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:19:46,334 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:19:46,343 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:19:46,345 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:19:46,347 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-151946
+2026-06-27 15:19:46,368 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-151946.json
+2026-06-27 15:19:46,368 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:20:53,988 - bible_app.utils.background - ERROR - Background task failed
+Traceback (most recent call last):
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\bible_app\utils\background.py", line 22, in done
+    result = completed.result()
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\betoo\AppData\Local\Programs\Python\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 97, in <lambda>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=record_error)
+                                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\betoo\Documents\Codex\my_programs\The_Bible\tests\test_bible_app_modules.py", line 97, in <genexpr>
+    bad_future = runner.submit(lambda: (_ for _ in ()).throw(RuntimeError("bad")), on_error=record_error)
+RuntimeError: bad
+2026-06-27 15:20:53,998 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-152053 from work\source_data
+2026-06-27 15:20:54,002 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-152054 from work\source_data
+2026-06-27 15:20:54,003 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-152053
+2026-06-27 15:20:54,006 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:20:54,006 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:20:54,006 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:20:54,006 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:20:54,015 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:20:54,017 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:20:54,019 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-152054
+2026-06-27 15:20:54,041 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-152054.json
+2026-06-27 15:20:54,041 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:21:11,719 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-152111 from work\source_data
+2026-06-27 15:21:11,723 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-152111-1 from work\source_data
+2026-06-27 15:21:11,724 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-152111
+2026-06-27 15:21:11,727 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:21:11,727 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:21:11,727 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:21:11,727 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:21:11,736 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:21:11,737 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:21:11,739 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-152111
+2026-06-27 15:21:11,759 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-152111.json
+2026-06-27 15:21:11,760 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:26:14,816 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-152614 from work\source_data
+2026-06-27 15:26:14,820 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-152614-1 from work\source_data
+2026-06-27 15:26:14,822 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-152614
+2026-06-27 15:26:14,824 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:26:14,824 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:26:14,824 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:26:14,825 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:26:14,833 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:26:14,834 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:26:14,837 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-152614
+2026-06-27 15:26:14,857 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-152614.json
+2026-06-27 15:26:14,857 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:31:25,350 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-153125 from work\source_data
+2026-06-27 15:31:25,354 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-153125-1 from work\source_data
+2026-06-27 15:31:25,355 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-153125
+2026-06-27 15:31:25,357 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:31:25,358 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:31:25,358 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:31:25,358 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:31:25,366 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:31:25,368 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:31:25,370 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-153125
+2026-06-27 15:31:25,393 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-153125.json
+2026-06-27 15:31:25,393 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:36:33,459 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-153633 from work\source_data
+2026-06-27 15:36:33,464 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-153633-1 from work\source_data
+2026-06-27 15:36:33,465 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-153633
+2026-06-27 15:36:33,467 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:36:33,468 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:36:33,468 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:36:33,468 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:36:33,476 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:36:33,478 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:36:33,480 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-153633
+2026-06-27 15:36:33,501 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-153633.json
+2026-06-27 15:36:33,501 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:41:03,139 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-154103 from work\source_data
+2026-06-27 15:41:03,143 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-154103-1 from work\source_data
+2026-06-27 15:41:03,144 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-154103
+2026-06-27 15:41:03,146 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:41:03,147 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:41:03,147 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:41:03,147 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:41:03,156 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:41:03,157 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:41:03,159 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-154103
+2026-06-27 15:41:03,180 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-154103.json
+2026-06-27 15:41:03,181 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:41:46,015 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-154146 from work\source_data
+2026-06-27 15:41:46,020 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-154146-1 from work\source_data
+2026-06-27 15:41:46,021 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-154146
+2026-06-27 15:41:46,024 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:41:46,024 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:41:46,024 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:41:46,025 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:41:46,033 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:41:46,035 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:41:46,037 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-154146
+2026-06-27 15:41:46,058 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-154146.json
+2026-06-27 15:41:46,058 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 15:45:53,102 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-154553 from work\source_data
+2026-06-27 15:45:53,108 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-154553-1 from work\source_data
+2026-06-27 15:45:53,109 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-154553
+2026-06-27 15:45:53,111 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 15:45:53,112 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 15:45:53,112 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 15:45:53,112 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 15:45:53,121 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 15:45:53,123 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 15:45:53,125 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-154553
+2026-06-27 15:45:53,146 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-154553.json
+2026-06-27 15:45:53,146 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:13:20,517 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-171320 from work\source_data
+2026-06-27 17:13:20,521 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-171320-1 from work\source_data
+2026-06-27 17:13:20,522 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-171320
+2026-06-27 17:13:20,524 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:13:20,525 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:13:20,525 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:13:20,525 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:13:20,543 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:13:20,545 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:13:20,547 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-171320
+2026-06-27 17:13:20,568 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-171320.json
+2026-06-27 17:13:20,569 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:17:42,758 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-171742 from work\source_data
+2026-06-27 17:17:42,762 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-171742-1 from work\source_data
+2026-06-27 17:17:42,763 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-171742
+2026-06-27 17:17:42,765 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:17:42,766 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:17:42,766 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:17:42,766 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:17:42,775 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:17:42,777 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:17:42,779 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-171742
+2026-06-27 17:17:42,798 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-171742.json
+2026-06-27 17:17:42,798 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:22:21,896 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-172221 from work\source_data
+2026-06-27 17:22:21,900 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-172221-1 from work\source_data
+2026-06-27 17:22:21,902 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-172221
+2026-06-27 17:22:21,904 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:22:21,905 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:22:21,905 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:22:21,905 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:22:21,915 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:22:21,916 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:22:21,918 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-172221
+2026-06-27 17:22:21,940 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-172221.json
+2026-06-27 17:22:21,941 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:32:39,708 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173239 from work\source_data
+2026-06-27 17:32:39,712 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173239-1 from work\source_data
+2026-06-27 17:32:39,714 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-173239
+2026-06-27 17:32:39,716 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:32:39,717 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:32:39,717 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:32:39,717 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:32:39,726 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:32:39,728 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:32:39,730 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-173239
+2026-06-27 17:32:39,750 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-173239.json
+2026-06-27 17:32:39,750 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:33:08,865 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173308 from work\source_data
+2026-06-27 17:33:08,869 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173308-1 from work\source_data
+2026-06-27 17:33:08,871 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-173308
+2026-06-27 17:33:08,873 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:33:08,874 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:33:08,874 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:33:08,874 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:33:08,884 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:33:08,885 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:33:08,887 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-173308
+2026-06-27 17:33:08,908 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-173308.json
+2026-06-27 17:33:08,908 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:33:44,392 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173344 from work\source_data
+2026-06-27 17:33:44,396 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173344-1 from work\source_data
+2026-06-27 17:33:44,398 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-173344
+2026-06-27 17:33:44,400 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:33:44,400 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:33:44,401 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:33:44,401 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:33:44,414 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:33:44,416 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:33:44,418 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-173344
+2026-06-27 17:33:44,438 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-173344.json
+2026-06-27 17:33:44,438 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:38:29,811 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173829 from work\source_data
+2026-06-27 17:38:29,815 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-173829-1 from work\source_data
+2026-06-27 17:38:29,817 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-173829
+2026-06-27 17:38:29,819 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:38:29,819 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:38:29,820 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:38:29,820 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:38:29,830 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:38:29,832 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:38:29,834 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-173829
+2026-06-27 17:38:29,856 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-173829.json
+2026-06-27 17:38:29,856 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:40:31,610 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-174031 from work\source_data
+2026-06-27 17:40:31,615 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-174031-1 from work\source_data
+2026-06-27 17:40:31,616 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-174031
+2026-06-27 17:40:31,619 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:40:31,619 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:40:31,619 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:40:31,619 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:40:31,630 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:40:31,641 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:40:31,645 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-174031
+2026-06-27 17:40:31,666 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-174031.json
+2026-06-27 17:40:31,666 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 17:47:55,008 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-174755 from work\source_data
+2026-06-27 17:47:55,013 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-174755-1 from work\source_data
+2026-06-27 17:47:55,014 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-174755
+2026-06-27 17:47:55,016 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 17:47:55,017 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 17:47:55,017 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 17:47:55,017 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 17:47:55,026 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 17:47:55,029 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 17:47:55,030 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-174755
+2026-06-27 17:47:55,052 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-174755.json
+2026-06-27 17:47:55,052 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 18:15:10,575 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-181510 from work\source_data
+2026-06-27 18:15:10,580 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-181510-1 from work\source_data
+2026-06-27 18:15:10,581 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-181510
+2026-06-27 18:15:10,584 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 18:15:10,584 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 18:15:10,584 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 18:15:10,585 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 18:15:10,595 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 18:15:10,597 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 18:15:10,599 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-181510
+2026-06-27 18:15:10,630 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-181510.json
+2026-06-27 18:15:10,630 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-27 18:25:34,633 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-182534 from work\source_data
+2026-06-27 18:25:34,638 - bible_app.storage.backup - INFO - Created data backup work\snapshot_backups\data-backup-20260627-182534-1 from work\source_data
+2026-06-27 18:25:34,639 - bible_app.storage.backup - INFO - Removed old data backup work\snapshot_backups\data-backup-20260627-182534
+2026-06-27 18:25:34,642 - bible_app.core.bible_data - INFO - Network request attempt 1/2: https://example.test
+2026-06-27 18:25:34,642 - bible_app.core.bible_data - WARNING - Network request failed attempt 1/2 for https://example.test: temporary
+2026-06-27 18:25:34,642 - bible_app.core.bible_data - INFO - Network request attempt 2/2: https://example.test
+2026-06-27 18:25:34,643 - bible_app.core.bible_data - INFO - Network request succeeded: https://example.test
+2026-06-27 18:25:34,653 - bible_app.core.documents - INFO - Converting document to library item: work\module_sample.txt
+2026-06-27 18:25:34,655 - bible_app.core.documents - INFO - Writing document library with 1 documents
+2026-06-27 18:25:34,657 - bible_app.core.documents - INFO - Converted document saved: Module-Sample-20260627-182534
+2026-06-27 18:25:34,687 - bible_app.storage.backup - WARNING - Quarantined work\bad_storage_module.json to C:\Users\betoo\Documents\Codex\my_programs\The_Bible\backups\quarantine\bad_storage_module-invalid-json-20260627-182534.json
+2026-06-27 18:25:34,687 - bible_app.storage.data_manager - WARNING - Could not read valid JSON from work\bad_storage_module.json; quarantined file and using fallback. Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
