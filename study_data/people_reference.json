@@ -1,0 +1,56 @@
+{
+  "family_trees": [
+    {
+      "name": "Primeval Family",
+      "people": ["Adam", "Eve", "Cain", "Abel", "Seth", "Noah"],
+      "notes": "Early Genesis family line from the first humans toward Noah.",
+      "references": ["Genesis 4:1", "Genesis 4:25", "Genesis 5:29"]
+    },
+    {
+      "name": "Patriarchs",
+      "people": ["Abraham", "Sarah", "Isaac", "Rebekah", "Jacob", "Esau", "Joseph"],
+      "notes": "The ancestral family line central to Genesis.",
+      "references": ["Genesis 12:1", "Genesis 21:3", "Genesis 25:26", "Genesis 37:3"]
+    },
+    {
+      "name": "Davidic House",
+      "people": ["David", "Bathsheba", "Solomon", "Rehoboam"],
+      "notes": "Royal line associated with Jerusalem and the kingdom of Judah.",
+      "references": ["2 Samuel 5:3", "2 Samuel 12:24", "1 Kings 11:43"]
+    },
+    {
+      "name": "Jesus and Relatives",
+      "people": ["Mary, mother of Jesus", "Joseph", "Jesus", "Elizabeth", "John the Baptist"],
+      "notes": "New Testament family and kinship circle around Jesus.",
+      "references": ["Luke 1:30", "Luke 1:57", "Luke 2:7"]
+    }
+  ],
+  "kings_timeline": [
+    {"name": "Saul", "kingdom": "Israel", "period": "United monarchy", "references": ["1 Samuel 10:1"]},
+    {"name": "David", "kingdom": "Israel", "period": "United monarchy", "references": ["2 Samuel 5:3"]},
+    {"name": "Solomon", "kingdom": "Israel", "period": "United monarchy", "references": ["1 Kings 1:39"]},
+    {"name": "Rehoboam", "kingdom": "Judah", "period": "Divided monarchy", "references": ["1 Kings 12:17"]},
+    {"name": "Jeroboam", "kingdom": "Israel", "period": "Divided monarchy", "references": ["1 Kings 12:20"]},
+    {"name": "Hezekiah", "kingdom": "Judah", "period": "Assyrian crisis", "references": ["2 Kings 18:1"]},
+    {"name": "Josiah", "kingdom": "Judah", "period": "Late monarchy", "references": ["2 Kings 22:1"]}
+  ],
+  "prophets_timeline": [
+    {"name": "Moses", "period": "Exodus / wilderness", "references": ["Exodus 3:1", "Deuteronomy 34:10"]},
+    {"name": "Samuel", "period": "Transition to monarchy", "references": ["1 Samuel 3:20"]},
+    {"name": "Elijah", "period": "Northern kingdom", "references": ["1 Kings 17:1"]},
+    {"name": "Elisha", "period": "Northern kingdom", "references": ["2 Kings 2:15"]},
+    {"name": "Isaiah", "period": "Judah / Assyrian crisis", "references": ["Isaiah 1:1"]},
+    {"name": "Jeremiah", "period": "Judah / Babylonian crisis", "references": ["Jeremiah 1:1"]},
+    {"name": "Ezekiel", "period": "Exile", "references": ["Ezekiel 1:1"]}
+  ],
+  "apostles": [
+    {"name": "Peter", "roles": ["apostle", "disciple"], "references": ["Matthew 4:18", "Acts 2:14"]},
+    {"name": "Andrew", "roles": ["apostle", "disciple"], "references": ["Matthew 4:18"]},
+    {"name": "James son of Zebedee", "roles": ["apostle"], "references": ["Matthew 4:21"]},
+    {"name": "John", "roles": ["apostle"], "references": ["Matthew 4:21"]},
+    {"name": "Philip", "roles": ["apostle"], "references": ["John 1:43"]},
+    {"name": "Thomas", "roles": ["apostle"], "references": ["John 20:24"]},
+    {"name": "Matthew", "roles": ["apostle"], "references": ["Matthew 9:9"]},
+    {"name": "Paul", "roles": ["apostle", "missionary"], "references": ["Acts 9:1", "Romans 1:1"]}
+  ]
+}

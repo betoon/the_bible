@@ -1,0 +1,115 @@
+{
+  "Genesis 1:1": {
+    "teaching": "A foundational verse for creation, origin, and divine agency.",
+    "cross": [
+      "John 1:1",
+      "John 1:3"
+    ],
+    "language": [
+      {
+        "word": "created",
+        "original": "bara",
+        "note": "Hebrew verb often associated with God's creative action."
+      }
+    ],
+    "map": "Ancient Near East context: creation narrative, no single journey location.",
+    "people": [],
+    "places": [
+      "Ancient Near East"
+    ],
+    "timeline": "Primeval history"
+  },
+  "Psalm 23:1": {
+    "teaching": "The shepherd image presents God as provider, guide, protector, and host.",
+    "cross": [
+      "John 10:11",
+      "Psalm 23:4"
+    ],
+    "language": [
+      {
+        "word": "LORD",
+        "original": "YHWH",
+        "note": "Covenant name of God in the Hebrew Bible."
+      }
+    ],
+    "map": "Pastoral imagery from ancient Israel and Judah.",
+    "people": [
+      "David"
+    ],
+    "places": [
+      "Israel",
+      "Judah"
+    ],
+    "timeline": "United monarchy / poetic tradition"
+  },
+  "John 1:1": {
+    "teaching": "John opens by connecting Jesus, the Word, with creation and divine identity.",
+    "cross": [
+      "Genesis 1:1",
+      "Genesis 1:3",
+      "John 1:3"
+    ],
+    "language": [
+      {
+        "word": "Word",
+        "original": "Logos",
+        "note": "Greek term carrying meaning of word, reason, message, or ordering principle."
+      }
+    ],
+    "map": "John's Gospel moves through Judea, Galilee, and Jerusalem.",
+    "people": [
+      "Jesus"
+    ],
+    "places": [
+      "Judea",
+      "Galilee",
+      "Jerusalem"
+    ],
+    "timeline": "First-century Gospel witness"
+  },
+  "John 3:4": {
+    "teaching": "A compact summary of divine love and salvation. In the full Bible this corresponds to John 3:16.",
+    "cross": [
+      "Romans 8:1",
+      "1 Corinthians 13:4"
+    ],
+    "language": [
+      {
+        "word": "loved",
+        "original": "agapao",
+        "note": "Greek verb associated with self-giving love."
+      }
+    ],
+    "map": "Conversation with Nicodemus, traditionally associated with Jerusalem.",
+    "people": [
+      "Jesus",
+      "Nicodemus"
+    ],
+    "places": [
+      "Jerusalem"
+    ],
+    "timeline": "Public ministry of Jesus"
+  },
+  "Romans 8:1": {
+    "teaching": "A key verse for assurance, grace, and freedom from condemnation in Christ.",
+    "cross": [
+      "John 3:5",
+      "Romans 8:2"
+    ],
+    "language": [
+      {
+        "word": "condemnation",
+        "original": "katakrima",
+        "note": "Judicial term for sentence or penalty."
+      }
+    ],
+    "map": "Paul's letter to believers in Rome.",
+    "people": [
+      "Paul"
+    ],
+    "places": [
+      "Rome"
+    ],
+    "timeline": "Early church letters"
+  }
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "title": "Canaan and the Patriarchs",
+    "period": "Patriarchal narratives",
+    "region": "Canaan / Ancient Near East",
+    "summary": "Reference map slot for patriarchal journeys and early Genesis locations.",
+    "related_passages": [
+      "Genesis 12:1",
+      "Genesis 15:18",
+      "Genesis 21:3"
+    ],
+    "related_people": [
+      "Abraham",
+      "Sarah",
+      "Isaac",
+      "Jacob"
+    ],
+    "related_places": [
+      "Canaan",
+      "Ancient Near East"
+    ],
+    "local_image": "",
+    "source_url": "https://commons.wikimedia.org/wiki/Category:Maps_of_ancient_Israel",
+    "license": "Curated placeholder; add a public-domain or properly attributed local map image.",
+    "attribution": ""
+  },
+  {
+    "title": "Exodus and Wilderness",
+    "period": "Exodus / wilderness",
+    "region": "Egypt, Sinai, Transjordan",
+    "summary": "Reference map slot for Exodus route traditions and wilderness narratives.",
+    "related_passages": [
+      "Exodus 3:1",
+      "Exodus 12:31",
+      "Numbers 14:25"
+    ],
+    "related_people": [
+      "Moses",
+      "Aaron",
+      "Miriam"
+    ],
+    "related_places": [
+      "Egypt",
+      "Sinai",
+      "Transjordan"
+    ],
+    "local_image": "",
+    "source_url": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Exodus",
+    "license": "Curated placeholder; add a public-domain or properly attributed local map image.",
+    "attribution": ""
+  },
+  {
+    "title": "United and Divided Monarchy",
+    "period": "United monarchy / divided monarchy",
+    "region": "Israel and Judah",
+    "summary": "Reference map slot for Saul, David, Solomon, and the later divided kingdoms.",
+    "related_passages": [
+      "2 Samuel 5:3",
+      "1 Kings 12:20",
+      "2 Kings 18:1"
+    ],
+    "related_people": [
+      "Saul",
+      "David",
+      "Solomon",
+      "Hezekiah",
+      "Josiah"
+    ],
+    "related_places": [
+      "Israel",
+      "Judah",
+      "Jerusalem"
+    ],
+    "local_image": "",
+    "source_url": "https://commons.wikimedia.org/wiki/Category:Maps_of_ancient_Israel",
+    "license": "Curated placeholder; add a public-domain or properly attributed local map image.",
+    "attribution": ""
+  },
+  {
+    "title": "Jerusalem",
+    "period": "Biblical and Second Temple periods",
+    "region": "Jerusalem",
+    "summary": "Reference map slot for Jerusalem, temple, kingship, exile, and Gospel narratives.",
+    "related_passages": [
+      "2 Samuel 5:7",
+      "1 Kings 8:1",
+      "Luke 2:22",
+      "John 19:17"
+    ],
+    "related_people": [
+      "David",
+      "Solomon",
+      "Jesus",
+      "Mary, mother of Jesus"
+    ],
+    "related_places": [
+      "Jerusalem",
+      "Temple"
+    ],
+    "local_image": "",
+    "source_url": "https://commons.wikimedia.org/wiki/Category:Maps_of_Jerusalem",
+    "license": "Curated placeholder; add a public-domain or properly attributed local map image.",
+    "attribution": ""
+  },
+  {
+    "title": "Paul's Journeys",
+    "period": "Early church",
+    "region": "Eastern Mediterranean",
+    "summary": "Reference map slot for Acts and Pauline mission travel.",
+    "related_passages": [
+      "Acts 9:1",
+      "Acts 13:4",
+      "Acts 16:9",
+      "Romans 1:1"
+    ],
+    "related_people": [
+      "Paul",
+      "Barnabas",
+      "Silas",
+      "Timothy",
+      "Luke"
+    ],
+    "related_places": [
+      "Eastern Mediterranean",
+      "Rome"
+    ],
+    "local_image": "",
+    "source_url": "https://commons.wikimedia.org/wiki/Category:Maps_of_Paul%27s_missionary_journeys",
+    "license": "Curated placeholder; add a public-domain or properly attributed local map image.",
+    "attribution": ""
+  }
+]

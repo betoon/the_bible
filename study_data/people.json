@@ -1,0 +1,161 @@
+{
+  "Adam": {
+    "canon": "Hebrew Bible",
+    "category": "Primeval figures",
+    "roles": [
+      "first human"
+    ],
+    "summary": "The first man in Genesis, placed in Eden and named as an ancestor of humanity.",
+    "references": [
+      "Genesis 1:26",
+      "Genesis 2:7",
+      "Genesis 3:17"
+    ],
+    "related_people": [
+      "Eve",
+      "Seth",
+      "Cain",
+      "Abel"
+    ]
+  },
+  "Abraham": {
+    "canon": "Hebrew Bible",
+    "category": "Patriarchs",
+    "roles": [
+      "patriarch",
+      "ancestor"
+    ],
+    "summary": "Called by God to leave his country and associated with the covenant promises of land, descendants, and blessing.",
+    "references": [
+      "Genesis 12:1",
+      "Genesis 15:6",
+      "Genesis 17:5"
+    ],
+    "related_people": [
+      "Sarah",
+      "Isaac",
+      "Ishmael",
+      "Lot"
+    ]
+  },
+  "Moses": {
+    "canon": "Hebrew Bible",
+    "category": "Prophets",
+    "roles": [
+      "prophet",
+      "leader",
+      "lawgiver"
+    ],
+    "summary": "Leader of Israel in the Exodus tradition and central figure in the giving of the Torah.",
+    "references": [
+      "Exodus 3:1",
+      "Exodus 12:31",
+      "Deuteronomy 34:10"
+    ],
+    "related_people": [
+      "Aaron",
+      "Miriam",
+      "Pharaoh",
+      "Joshua"
+    ]
+  },
+  "David": {
+    "canon": "Hebrew Bible",
+    "category": "Kings",
+    "roles": [
+      "king",
+      "psalmist"
+    ],
+    "summary": "King of Israel associated with Jerusalem, the Davidic dynasty, and many psalms.",
+    "references": [
+      "1 Samuel 16:13",
+      "2 Samuel 5:3",
+      "Psalm 23:1"
+    ],
+    "related_people": [
+      "Saul",
+      "Jonathan",
+      "Solomon",
+      "Bathsheba"
+    ]
+  },
+  "Mary, mother of Jesus": {
+    "canon": "New Testament",
+    "category": "Jesus and his relatives",
+    "roles": [
+      "mother of Jesus"
+    ],
+    "summary": "Mother of Jesus, present in the infancy narratives and later scenes in the Gospels and Acts.",
+    "references": [
+      "Luke 1:30",
+      "Luke 2:7",
+      "John 19:26"
+    ],
+    "related_people": [
+      "Jesus",
+      "Joseph",
+      "Elizabeth"
+    ]
+  },
+  "Jesus": {
+    "canon": "New Testament",
+    "category": "Jesus and his relatives",
+    "roles": [
+      "Messiah",
+      "teacher",
+      "Son of God"
+    ],
+    "summary": "Central figure of the New Testament, presented in the Gospels as teacher, healer, crucified and risen Lord.",
+    "references": [
+      "Matthew 1:1",
+      "John 1:1",
+      "John 3:16"
+    ],
+    "related_people": [
+      "Mary, mother of Jesus",
+      "John the Baptist",
+      "Peter",
+      "Paul"
+    ]
+  },
+  "Peter": {
+    "canon": "New Testament",
+    "category": "Apostles",
+    "roles": [
+      "apostle",
+      "disciple"
+    ],
+    "summary": "One of Jesus's leading apostles, prominent in the Gospels and early chapters of Acts.",
+    "references": [
+      "Matthew 4:18",
+      "Matthew 16:16",
+      "Acts 2:14"
+    ],
+    "related_people": [
+      "Andrew",
+      "Jesus",
+      "John"
+    ]
+  },
+  "Paul": {
+    "canon": "New Testament",
+    "category": "Apostles",
+    "roles": [
+      "apostle",
+      "missionary",
+      "letter writer"
+    ],
+    "summary": "Apostle to the Gentiles and author or associated sender of many New Testament letters.",
+    "references": [
+      "Acts 9:1",
+      "Romans 1:1",
+      "Philippians 1:1"
+    ],
+    "related_people": [
+      "Barnabas",
+      "Silas",
+      "Timothy",
+      "Luke"
+    ]
+  }
+}
