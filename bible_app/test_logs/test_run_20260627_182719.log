@@ -1,0 +1,88 @@
+Testing Workbench run started 2026-06-27T18:27:19
+Project: C:\Users\betoo\Documents\Codex\my_programs\The_Bible\bible_app
+
+=== Compile all Python files ===
+Command: C:\Users\betoo\AppData\Local\Programs\Python\Python314\pythonw.exe -m compileall -q C:\Users\betoo\Documents\Codex\my_programs\The_Bible\bible_app
+PASSED: Compile all Python files
+
+=== Validate JSON files ===
+PASSED: Validate JSON files
+
+=== Audit Tkinter button callbacks ===
+OK: ui\windows\concepts.py:49 command=self.new_concept - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\concepts.py:80 command=self.add_current_reference - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\concepts.py:81 command=self.add_typed_reference - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\concepts.py:82 command=self.remove_reference - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\concepts.py:89 command=self.save_concept - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\concepts.py:90 command=self.delete_concept - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\concepts.py:91 command=self.export_current_concept - Button: method exists on ConceptLibraryWindow
+OK: ui\windows\cross_reference.py:29 command=self.add_link - Button: method exists on CrossReferenceExplorerWindow
+OK: ui\windows\dashboard.py:21 command=lambda: self.app.open_reference(self.app.selected_ref) - Button: lambda callback present
+WARN: ui\windows\dashboard.py:22 command=self.app.open_study_worksheet - Button: callback form was not recognized
+WARN: ui\windows\dashboard.py:23 command=self.app.open_search_everything - Button: callback form was not recognized
+OK: ui\windows\help.py:36 command=lambda: self.open_doc('REFERENCE_GUIDE.md') - Button: lambda callback present
+OK: ui\windows\help.py:37 command=lambda: self.open_doc('DEVELOPERS_GUIDE.md') - Button: lambda callback present
+OK: ui\windows\help.py:38 command=lambda: self.open_doc('USER_GUIDE.md') - Button: lambda callback present
+OK: ui\windows\hymnal_viewer.py:54 command=self.open_current_pdf - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:58 command=self.favorite_selected_hymn - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:59 command=self.link_selected_hymn - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:60 command=self.add_selected_hymn_to_session - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:61 command=self.show_recent_hymns - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:62 command=self.show_favorite_hymns - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:77 command=self.clear_search - Button: method exists on HymnalViewerWindow
+OK: ui\windows\hymnal_viewer.py:96 command=lambda: self.change_sheet_zoom(0.15) - Button: lambda callback present
+OK: ui\windows\hymnal_viewer.py:97 command=lambda: self.change_sheet_zoom(-0.15) - Button: lambda callback present
+OK: ui\windows\hymnal_viewer.py:98 command=self.fit_sheet_width - Button: method exists on HymnalViewerWindow
+OK: ui\windows\journal.py:39 command=self.add_image - Button: method exists on JournalWindow
+OK: ui\windows\journal.py:40 command=self.save_entry - Button: method exists on JournalWindow
+OK: ui\windows\library.py:46 command=self.download_current_book - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:47 command=self.download_new_testament - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:51 command=self.download_tanakh - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:52 command=self.download_torah - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:56 command=self.download_prophets - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:57 command=self.download_writings - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:61 command=self.convert_document - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:62 command=self.view_selected_document - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:63 command=self.open_selected_document_source - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:64 command=self.clear_cache - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:77 command=self.refresh_documents - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:78 command=self.clear_document_search - Button: method exists on LibraryWindow
+OK: ui\windows\library.py:203 command=self.choose_document - Button: method exists on DocumentConversionWindow
+OK: ui\windows\library.py:204 command=self.start_conversion - Button: method exists on DocumentConversionWindow
+OK: ui\windows\library.py:298 command=self.open_source - Button: method exists on DocumentViewerWindow
+OK: ui\windows\library.py:321 command=lambda: self.open_selected_image(image_list) - Button: lambda callback present
+OK: ui\windows\map_viewer.py:43 command=self.open_external - Button: method exists on MapViewerWindow
+OK: ui\windows\people.py:51 command=self.render_people_list - Button: method exists on PeopleReferenceWindow
+OK: ui\windows\people.py:62 command=self.open_selected_person - Button: method exists on PeopleReferenceWindow
+OK: ui\windows\search_everything.py:45 command=self.search - Button: method exists on SearchEverythingWindow
+OK: ui\windows\sessions.py:44 command=self.new_session - Button: method exists on StudySessionsWindow
+OK: ui\windows\sessions.py:45 command=self.add_current - Button: method exists on StudySessionsWindow
+OK: ui\windows\sessions.py:56 command=self.save_current - Button: method exists on StudySessionsWindow
+OK: ui\windows\sessions.py:57 command=self.export_current - Button: method exists on StudySessionsWindow
+OK: ui\windows\sessions.py:152 command=self.mark_complete - Button: method exists on ReadingPlansWindow
+OK: ui\windows\sessions.py:153 command=self.open_next - Button: method exists on ReadingPlansWindow
+OK: ui\windows\sessions.py:154 command=self.open_worksheet - Button: method exists on ReadingPlansWindow
+OK: ui\windows\sessions.py:299 command=self.save - Button: method exists on ChapterADayWorksheetWindow
+OK: ui\windows\sessions.py:300 command=self.save_and_mark_complete - Button: method exists on ChapterADayWorksheetWindow
+OK: ui\windows\sessions.py:301 command=lambda: self.app.open_reference(self.ref) - Button: lambda callback present
+OK: ui\windows\sessions.py:382 command=self.export_binder - Button: method exists on StudyBinderWindow
+OK: ui\windows\settings.py:22 command=lambda: self.pick_color('reader_bg') - Button: lambda callback present
+OK: ui\windows\settings.py:23 command=lambda: self.pick_color('reader_fg') - Button: lambda callback present
+OK: ui\windows\settings.py:24 command=lambda: self.pick_color('highlight_bg') - Button: lambda callback present
+WARN: ui\windows\settings.py:28 command=self.app.apply_dark_mode - Button: callback form was not recognized
+WARN: ui\windows\settings.py:29 command=self.app.apply_light_mode - Button: callback form was not recognized
+OK: ui\windows\settings.py:59 command=self.apply_font - Button: method exists on SettingsWindow
+OK: ui\windows\settings.py:61 command=self.destroy - Button: common Tkinter method
+OK: ui\windows\worksheet.py:40 command=self.save - Button: method exists on PassageStudyWorksheetWindow
+Audited 65 Tkinter button callback(s). Missing: 0. Warnings: 4.
+PASSED: Audit Tkinter button callbacks
+
+=== Run unittest discovery ===
+Command: C:\Users\betoo\AppData\Local\Programs\Python\Python314\pythonw.exe -m unittest discover -s tests
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.234s
+
+OK
+PASSED: Run unittest discovery
+

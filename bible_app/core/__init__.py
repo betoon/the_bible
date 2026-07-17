@@ -1,0 +1,2 @@
+"""Pure application logic."""
+

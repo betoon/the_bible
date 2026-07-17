@@ -1,0 +1,2 @@
+"""Notes panel extraction target."""
+
