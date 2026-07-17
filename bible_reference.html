@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Reference Study Tool</title>
+    <style>
+        :root {
+            --ink: #1f2933;
+            --muted: #66788a;
+            --line: #d9e1ea;
+            --paper: #fbfcfd;
+            --panel: #ffffff;
+            --accent: #2f6f73;
+            --accent-dark: #24585b;
+            --gold: #b8872f;
+            --blue: #315f8f;
+            --shadow: 0 12px 34px rgba(31, 41, 51, 0.14);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--paper);
+        }
+
+        .app {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 310px minmax(0, 1fr) 340px;
+            grid-template-rows: auto minmax(0, 1fr);
+        }
+
+        header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 14px 18px;
+            color: #fff;
+            background: linear-gradient(90deg, #26384c, #2f6f73 58%, #715f38);
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            margin: 4px 0 0;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 13px;
+        }
+
+        .lookup {
+            display: flex;
+            gap: 8px;
+            min-width: min(520px, 100%);
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            font: inherit;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #cfd8e3;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--ink);
+            padding: 8px 9px;
+        }
+
+        button {
+            min-height: 36px;
+            border: 1px solid #c5d1dc;
+            border-radius: 6px;
+            background: #fff;
+            color: #21485d;
+            font-weight: 650;
+            cursor: pointer;
+            padding: 7px 10px;
+        }
+
+        button:hover {
+            border-color: var(--accent);
+            color: var(--accent-dark);
+        }
+
+        .primary {
+            color: #fff;
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+
+        .primary:hover {
+            color: #fff;
+            background: var(--accent-dark);
+        }
+
+        aside,
+        .right-panel {
+            padding: 14px;
+            overflow-y: auto;
+            background: #f5f8fa;
+        }
+
+        aside {
+            border-right: 1px solid var(--line);
+        }
+
+        .right-panel {
+            border-left: 1px solid var(--line);
+        }
+
+        main {
+            min-width: 0;
+            padding: 18px 22px 28px;
+            overflow-y: auto;
+            background: var(--paper);
+        }
+
+        section {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        section:first-child { padding-top: 0; }
+        section:last-child { border-bottom: 0; }
+
+        h2 {
+            margin: 0 0 10px;
+            color: #243647;
+            font-size: 14px;
+        }
+
+        .control-row {
+            display: grid;
+            grid-template-columns: 1fr 82px;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .book-list,
+        .chapter-list,
+        .theme-list,
+        .result-list {
+            display: grid;
+            gap: 6px;
+        }
+
+        .book-button,
+        .chapter-button,
+        .theme-button,
+        .result-button {
+            text-align: left;
+            background: #fff;
+        }
+
+        .active {
+            color: #fff;
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+
+        .reader-title {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .reader-title h2 {
+            margin: 0;
+            font-size: 28px;
+            color: var(--ink);
+        }
+
+        .translation-pill {
+            padding: 6px 9px;
+            border: 1px solid #d6dfeb;
+            border-radius: 6px;
+            background: #fff;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .verse {
+            margin: 0;
+            padding: 8px 10px;
+            border-radius: 6px;
+            line-height: 1.65;
+            font-size: 18px;
+        }
+
+        .verse:hover,
+        .verse.selected {
+            background: #edf6f5;
+        }
+
+        .verse-num {
+            display: inline-block;
+            min-width: 26px;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 13px;
+            vertical-align: super;
+        }
+
+        .panel-card {
+            padding: 11px;
+            border: 1px solid #d9e1ea;
+            border-radius: 7px;
+            background: #fff;
+            box-shadow: 0 3px 14px rgba(31, 41, 51, 0.04);
+        }
+
+        .panel-card + .panel-card {
+            margin-top: 10px;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .strongs {
+            display: grid;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin: 4px 5px 0 0;
+            padding: 4px 7px;
+            border-radius: 6px;
+            background: #edf2f7;
+            color: #37536b;
+            font-size: 12px;
+            font-weight: 650;
+        }
+
+        .map-box {
+            min-height: 120px;
+            display: grid;
+            place-items: center;
+            border: 1px dashed #c2ccd6;
+            border-radius: 7px;
+            color: var(--muted);
+            background: linear-gradient(135deg, #eef5f3, #f8f3e9);
+            text-align: center;
+            padding: 12px;
+        }
+
+        textarea {
+            min-height: 86px;
+            resize: vertical;
+        }
+
+        .note-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 1050px) {
+            .app {
+                grid-template-columns: 280px minmax(0, 1fr);
+            }
+            .right-panel {
+                grid-column: 1 / -1;
+                border-left: 0;
+                border-top: 1px solid var(--line);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .app {
+                display: block;
+            }
+            header,
+            .lookup {
+                align-items: stretch;
+                flex-direction: column;
+            }
+            aside,
+            main,
+            .right-panel {
+                max-height: none;
+                overflow: visible;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div>
+                <h1>Bible Reference Study Tool</h1>
+                <p class="subtitle">Prototype reader, concordance, themes, maps, and study notes</p>
+            </div>
+            <div class="lookup">
+                <input id="quickLookup" type="text" placeholder="Quick lookup: John 3:16, Psalm 23, Genesis 1">
+                <button id="lookupButton" class="primary">Open</button>
+            </div>
+        </header>
+
+        <aside>
+            <section>
+                <h2>Translation</h2>
+                <select id="translationSelect">
+                    <option value="KJV">King James Version, sample</option>
+                </select>
+                <p class="muted">This prototype includes a small public-domain KJV sample. The structure is ready for fuller public-domain texts and comparison translations.</p>
+            </section>
+
+            <section>
+                <h2>Books</h2>
+                <div class="book-list" id="bookList"></div>
+            </section>
+
+            <section>
+                <h2>Chapters</h2>
+                <div class="chapter-list" id="chapterList"></div>
+            </section>
+
+            <section>
+                <h2>Concordance Search</h2>
+                <div class="control-row">
+                    <input id="wordSearch" type="text" placeholder="faith, light, love...">
+                    <button id="wordButton">Find</button>
+                </div>
+                <div class="result-list" id="searchResults"></div>
+            </section>
+
+            <section>
+                <h2>Thematic Tracing</h2>
+                <div class="theme-list" id="themeList"></div>
+            </section>
+        </aside>
+
+        <main>
+            <div class="reader-title">
+                <h2 id="chapterTitle">Genesis 1</h2>
+                <span class="translation-pill" id="translationPill">KJV sample</span>
+            </div>
+            <div id="chapterText"></div>
+        </main>
+
+        <div class="right-panel">
+            <section>
+                <h2>Selected Verse</h2>
+                <div class="panel-card">
+                    <strong id="selectedReference">Genesis 1:1</strong>
+                    <p class="muted" id="selectedText"></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Study Helps</h2>
+                <div class="panel-card">
+                    <strong>Teaching Notes</strong>
+                    <p class="muted" id="teachingNotes"></p>
+                </div>
+                <div class="panel-card">
+                    <strong>Cross References</strong>
+                    <div id="crossRefs"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Original Language</h2>
+                <div class="panel-card strongs" id="languagePanel"></div>
+            </section>
+
+            <section>
+                <h2>Maps</h2>
+                <div class="map-box" id="mapPanel">Map references will appear here when a passage has a place marker.</div>
+            </section>
+
+            <section>
+                <h2>Personal Notes</h2>
+                <textarea id="personalNotes" placeholder="Write a study note for the selected verse..."></textarea>
+                <div class="note-actions">
+                    <button id="saveNoteButton">Save Note</button>
+                    <button id="clearNoteButton">Clear</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const bible = {
+            KJV: {
+                "Genesis": {
+                    1: [
+                        "In the beginning God created the heaven and the earth.",
+                        "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+                        "And God said, Let there be light: and there was light.",
+                        "And God saw the light, that it was good: and God divided the light from the darkness.",
+                        "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day."
+                    ]
+                },
+                "Psalm": {
+                    23: [
+                        "The LORD is my shepherd; I shall not want.",
+                        "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+                        "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+                        "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+                        "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+                        "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever."
+                    ]
+                },
+                "Isaiah": {
+                    53: [
+                        "Who hath believed our report? and to whom is the arm of the LORD revealed?",
+                        "For he shall grow up before him as a tender plant, and as a root out of a dry ground.",
+                        "He is despised and rejected of men; a man of sorrows, and acquainted with grief.",
+                        "Surely he hath borne our griefs, and carried our sorrows.",
+                        "But he was wounded for our transgressions, he was bruised for our iniquities."
+                    ]
+                },
+                "John": {
+                    1: [
+                        "In the beginning was the Word, and the Word was with God, and the Word was God.",
+                        "The same was in the beginning with God.",
+                        "All things were made by him; and without him was not any thing made that was made.",
+                        "In him was life; and the life was the light of men.",
+                        "And the light shineth in darkness; and the darkness comprehended it not."
+                    ],
+                    3: [
+                        "There was a man of the Pharisees, named Nicodemus, a ruler of the Jews.",
+                        "The same came to Jesus by night, and said unto him, Rabbi, we know that thou art a teacher come from God.",
+                        "Jesus answered and said unto him, Except a man be born again, he cannot see the kingdom of God.",
+                        "For God so loved the world, that he gave his only begotten Son.",
+                        "For God sent not his Son into the world to condemn the world; but that the world through him might be saved."
+                    ]
+                },
+                "Romans": {
+                    8: [
+                        "There is therefore now no condemnation to them which are in Christ Jesus.",
+                        "For the law of the Spirit of life in Christ Jesus hath made me free from the law of sin and death.",
+                        "For to be carnally minded is death; but to be spiritually minded is life and peace.",
+                        "The Spirit itself beareth witness with our spirit, that we are the children of God.",
+                        "And we know that all things work together for good to them that love God."
+                    ]
+                },
+                "1 Corinthians": {
+                    13: [
+                        "Though I speak with the tongues of men and of angels, and have not charity, I am become as sounding brass.",
+                        "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up.",
+                        "Charity never faileth.",
+                        "And now abideth faith, hope, charity, these three; but the greatest of these is charity."
+                    ]
+                }
+            }
+        };
+
+        const bookOrder = ["Genesis", "Psalm", "Isaiah", "John", "Romans", "1 Corinthians"];
+        const themes = {
+            Creation: ["Genesis 1:1", "Genesis 1:3", "John 1:3"],
+            Light: ["Genesis 1:3", "John 1:4", "John 1:5"],
+            Shepherd: ["Psalm 23:1", "Psalm 23:2", "Psalm 23:4"],
+            Salvation: ["Isaiah 53:5", "John 3:3", "John 3:5", "Romans 8:1"],
+            Love: ["John 3:4", "Romans 8:5", "1 Corinthians 13:2", "1 Corinthians 13:4"]
+        };
+
+        const study = {
+            "Genesis 1:1": {
+                teaching: "A foundational verse for creation, origin, and divine agency. This passage is useful when tracing the Bible's opening claim about God as creator.",
+                cross: ["John 1:1", "John 1:3"],
+                language: [{ word: "created", original: "bara", note: "Hebrew verb often associated with God's creative action." }],
+                map: "Ancient Near East context: creation narrative, no single journey location."
+            },
+            "Psalm 23:1": {
+                teaching: "The shepherd image presents God as provider, guide, protector, and host.",
+                cross: ["John 10:11", "Psalm 23:4"],
+                language: [{ word: "LORD", original: "YHWH", note: "Covenant name of God in the Hebrew Bible." }],
+                map: "Pastoral imagery from ancient Israel and Judah."
+            },
+            "John 1:1": {
+                teaching: "John opens by connecting Jesus, the Word, with creation and divine identity.",
+                cross: ["Genesis 1:1", "Genesis 1:3", "John 1:3"],
+                language: [{ word: "Word", original: "Logos", note: "Greek term carrying meaning of word, reason, message, or ordering principle." }],
+                map: "John's Gospel moves through Judea, Galilee, and Jerusalem."
+            },
+            "John 3:4": {
+                teaching: "A compact summary of divine love and salvation. In the full Bible this corresponds to John 3:16; the prototype sample uses shortened chapter text for now.",
+                cross: ["Romans 8:1", "1 Corinthians 13:4"],
+                language: [{ word: "loved", original: "agapao", note: "Greek verb associated with self-giving love." }],
+                map: "Conversation with Nicodemus, traditionally associated with Jerusalem."
+            },
+            "Romans 8:1": {
+                teaching: "A key verse for assurance, grace, and freedom from condemnation in Christ.",
+                cross: ["John 3:5", "Romans 8:2"],
+                language: [{ word: "condemnation", original: "katakrima", note: "Judicial term for sentence or penalty." }],
+                map: "Paul's letter to believers in Rome."
+            }
+        };
+
+        let currentTranslation = "KJV";
+        let currentBook = "Genesis";
+        let currentChapter = 1;
+        let selectedRef = "Genesis 1:1";
+
+        function referenceParts(ref) {
+            const match = ref.match(/^(.+?)\s+(\d+)(?::(\d+))?$/);
+            if (!match) return null;
+            return {
+                book: match[1],
+                chapter: Number(match[2]),
+                verse: match[3] ? Number(match[3]) : 1
+            };
+        }
+
+        function verseText(ref) {
+            const parts = referenceParts(ref);
+            if (!parts) return "";
+            return bible[currentTranslation]?.[parts.book]?.[parts.chapter]?.[parts.verse - 1] || "";
+        }
+
+        function allReferences() {
+            const refs = [];
+            const books = bible[currentTranslation];
+            Object.entries(books).forEach(([book, chapters]) => {
+                Object.entries(chapters).forEach(([chapter, verses]) => {
+                    verses.forEach((text, index) => {
+                        refs.push({ ref: `${book} ${chapter}:${index + 1}`, book, chapter: Number(chapter), verse: index + 1, text });
+                    });
+                });
+            });
+            return refs;
+        }
+
+        function renderBooks() {
+            const box = document.getElementById("bookList");
+            box.innerHTML = "";
+            bookOrder.forEach(book => {
+                const button = document.createElement("button");
+                button.className = `book-button ${book === currentBook ? "active" : ""}`;
+                button.textContent = book;
+                button.addEventListener("click", () => {
+                    currentBook = book;
+                    currentChapter = Number(Object.keys(bible[currentTranslation][book])[0]);
+                    renderAll();
+                });
+                box.appendChild(button);
+            });
+        }
+
+        function renderChapters() {
+            const box = document.getElementById("chapterList");
+            box.innerHTML = "";
+            Object.keys(bible[currentTranslation][currentBook]).forEach(chapter => {
+                const button = document.createElement("button");
+                button.className = `chapter-button ${Number(chapter) === currentChapter ? "active" : ""}`;
+                button.textContent = `Chapter ${chapter}`;
+                button.addEventListener("click", () => {
+                    currentChapter = Number(chapter);
+                    renderAll();
+                });
+                box.appendChild(button);
+            });
+        }
+
+        function renderChapter() {
+            document.getElementById("chapterTitle").textContent = `${currentBook} ${currentChapter}`;
+            document.getElementById("translationPill").textContent = `${currentTranslation} sample`;
+            const box = document.getElementById("chapterText");
+            box.innerHTML = "";
+            const verses = bible[currentTranslation][currentBook][currentChapter] || [];
+            verses.forEach((text, index) => {
+                const ref = `${currentBook} ${currentChapter}:${index + 1}`;
+                const p = document.createElement("p");
+                p.className = `verse ${ref === selectedRef ? "selected" : ""}`;
+                p.innerHTML = `<span class="verse-num">${index + 1}</span>${escapeHtml(text)}`;
+                p.addEventListener("click", () => selectVerse(ref));
+                box.appendChild(p);
+            });
+            if (!verseText(selectedRef) && verses.length) {
+                selectVerse(`${currentBook} ${currentChapter}:1`, false);
+            }
+        }
+
+        function renderThemes() {
+            const box = document.getElementById("themeList");
+            box.innerHTML = "";
+            Object.entries(themes).forEach(([theme, refs]) => {
+                const button = document.createElement("button");
+                button.className = "theme-button";
+                button.textContent = `${theme} (${refs.length})`;
+                button.addEventListener("click", () => showTheme(theme, refs));
+                box.appendChild(button);
+            });
+        }
+
+        function showTheme(theme, refs) {
+            const results = document.getElementById("searchResults");
+            results.innerHTML = "";
+            refs.forEach(ref => addResultButton(results, ref, verseText(ref)));
+            if (refs[0]) openReference(refs[0]);
+        }
+
+        function addResultButton(container, ref, text) {
+            const button = document.createElement("button");
+            button.className = "result-button";
+            button.innerHTML = `<strong>${escapeHtml(ref)}</strong><br><span class="muted">${escapeHtml(text || "Reference placeholder")}</span>`;
+            button.addEventListener("click", () => openReference(ref));
+            container.appendChild(button);
+        }
+
+        function searchWord() {
+            const query = document.getElementById("wordSearch").value.trim().toLowerCase();
+            const results = document.getElementById("searchResults");
+            results.innerHTML = "";
+            if (!query) return;
+            allReferences()
+                .filter(item => item.text.toLowerCase().includes(query))
+                .forEach(item => addResultButton(results, item.ref, item.text));
+            if (!results.children.length) {
+                results.innerHTML = `<p class="muted">No matches in the prototype sample.</p>`;
+            }
+        }
+
+        function openReference(ref) {
+            const parts = referenceParts(ref);
+            if (!parts || !bible[currentTranslation]?.[parts.book]?.[parts.chapter]) {
+                alert("That passage is not in the prototype sample yet.");
+                return;
+            }
+            currentBook = parts.book;
+            currentChapter = parts.chapter;
+            selectedRef = `${parts.book} ${parts.chapter}:${parts.verse}`;
+            renderAll();
+            selectVerse(selectedRef, false);
+        }
+
+        function selectVerse(ref, rerender = true) {
+            selectedRef = ref;
+            const text = verseText(ref);
+            document.getElementById("selectedReference").textContent = ref;
+            document.getElementById("selectedText").textContent = text;
+            const entry = study[ref] || {};
+            document.getElementById("teachingNotes").textContent = entry.teaching || "No teaching note has been added for this verse yet.";
+            const cross = document.getElementById("crossRefs");
+            cross.innerHTML = "";
+            (entry.cross || []).forEach(crossRef => addResultButton(cross, crossRef, verseText(crossRef)));
+            if (!cross.children.length) cross.innerHTML = `<p class="muted">No cross references added yet.</p>`;
+            const language = document.getElementById("languagePanel");
+            language.innerHTML = "";
+            (entry.language || []).forEach(item => {
+                const div = document.createElement("div");
+                div.innerHTML = `<span class="tag">${escapeHtml(item.word)}</span><strong>${escapeHtml(item.original)}</strong><p class="muted">${escapeHtml(item.note)}</p>`;
+                language.appendChild(div);
+            });
+            if (!language.children.length) language.innerHTML = `<p class="muted">Original language notes can be added here later.</p>`;
+            document.getElementById("mapPanel").textContent = entry.map || "No map reference has been added for this passage yet.";
+            loadPersonalNote();
+            if (rerender) renderChapter();
+        }
+
+        function savePersonalNote() {
+            localStorage.setItem(`bible-note:${selectedRef}`, document.getElementById("personalNotes").value);
+        }
+
+        function loadPersonalNote() {
+            document.getElementById("personalNotes").value = localStorage.getItem(`bible-note:${selectedRef}`) || "";
+        }
+
+        function clearPersonalNote() {
+            localStorage.removeItem(`bible-note:${selectedRef}`);
+            loadPersonalNote();
+        }
+
+        function renderAll() {
+            renderBooks();
+            renderChapters();
+            renderThemes();
+            renderChapter();
+        }
+
+        function escapeHtml(value) {
+            return String(value || "").replace(/[&<>"']/g, char => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            }[char]));
+        }
+
+        document.getElementById("lookupButton").addEventListener("click", () => openReference(document.getElementById("quickLookup").value.trim()));
+        document.getElementById("quickLookup").addEventListener("keydown", event => {
+            if (event.key === "Enter") openReference(event.target.value.trim());
+        });
+        document.getElementById("wordButton").addEventListener("click", searchWord);
+        document.getElementById("wordSearch").addEventListener("keydown", event => {
+            if (event.key === "Enter") searchWord();
+        });
+        document.getElementById("saveNoteButton").addEventListener("click", savePersonalNote);
+        document.getElementById("clearNoteButton").addEventListener("click", clearPersonalNote);
+
+        renderAll();
+        selectVerse(selectedRef, false);
+    </script>
+</body>
+</html>

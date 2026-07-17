@@ -1,0 +1,1007 @@
+import json
+import re
+from datetime import datetime
+import threading
+import tkinter as tk
+import urllib.parse
+import urllib.request
+from pathlib import Path
+from tkinter import filedialog, messagebox, ttk
+
+
+APP_DIR = Path(__file__).resolve().parent
+DATA_DIR = APP_DIR / "data"
+BIBLE_DATA_PATH = DATA_DIR / "kjv_bible.json"
+NOTES_PATH = APP_DIR / "bible_personal_notes.json"
+JOURNAL_PATH = APP_DIR / "bible_private_journal.json"
+BIBLE_API_URL = "[bible-api.com](https://bible-api.com/{reference}?translation=kjv)"
+TRANSLATION_LABELS = {
+    "KJV": "King James Version",
+    "NIV": "New International Version",
+    "ESV": "English Standard Version",
+}
+
+
+BOOK_CHAPTERS = {
+    "Genesis": 50, "Exodus": 40, "Leviticus": 27, "Numbers": 36, "Deuteronomy": 34,
+    "Joshua": 24, "Judges": 21, "Ruth": 4, "1 Samuel": 31, "2 Samuel": 24,
+    "1 Kings": 22, "2 Kings": 25, "1 Chronicles": 29, "2 Chronicles": 36, "Ezra": 10,
+    "Nehemiah": 13, "Esther": 10, "Job": 42, "Psalm": 150, "Proverbs": 31,
+    "Ecclesiastes": 12, "Song of Solomon": 8, "Isaiah": 66, "Jeremiah": 52,
+    "Lamentations": 5, "Ezekiel": 48, "Daniel": 12, "Hosea": 14, "Joel": 3,
+    "Amos": 9, "Obadiah": 1, "Jonah": 4, "Micah": 7, "Nahum": 3, "Habakkuk": 3,
+    "Zephaniah": 3, "Haggai": 2, "Zechariah": 14, "Malachi": 4, "Matthew": 28,
+    "Mark": 16, "Luke": 24, "John": 21, "Acts": 28, "Romans": 16, "1 Corinthians": 16,
+    "2 Corinthians": 13, "Galatians": 6, "Ephesians": 6, "Philippians": 4, "Colossians": 4,
+    "1 Thessalonians": 5, "2 Thessalonians": 3, "1 Timothy": 6, "2 Timothy": 4,
+    "Titus": 3, "Philemon": 1, "Hebrews": 13, "James": 5, "1 Peter": 5,
+    "2 Peter": 3, "1 John": 5, "2 John": 1, "3 John": 1, "Jude": 1, "Revelation": 22,
+}
+
+
+BIBLE = {
+    "KJV": {
+        "Genesis": {
+            1: [
+                "In the beginning God created the heaven and the earth.",
+                "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+                "And God said, Let there be light: and there was light.",
+                "And God saw the light, that it was good: and God divided the light from the darkness.",
+                "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.",
+            ]
+        },
+        "Psalm": {
+            23: [
+                "The LORD is my shepherd; I shall not want.",
+                "He maketh me to lie down in green pastures: he leadeth me beside the still waters.",
+                "He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.",
+                "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+                "Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.",
+                "Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.",
+            ]
+        },
+        "Isaiah": {
+            53: [
+                "Who hath believed our report? and to whom is the arm of the LORD revealed?",
+                "For he shall grow up before him as a tender plant, and as a root out of a dry ground.",
+                "He is despised and rejected of men; a man of sorrows, and acquainted with grief.",
+                "Surely he hath borne our griefs, and carried our sorrows.",
+                "But he was wounded for our transgressions, he was bruised for our iniquities.",
+            ]
+        },
+        "John": {
+            1: [
+                "In the beginning was the Word, and the Word was with God, and the Word was God.",
+                "The same was in the beginning with God.",
+                "All things were made by him; and without him was not any thing made that was made.",
+                "In him was life; and the life was the light of men.",
+                "And the light shineth in darkness; and the darkness comprehended it not.",
+            ],
+            3: [
+                "There was a man of the Pharisees, named Nicodemus, a ruler of the Jews.",
+                "The same came to Jesus by night, and said unto him, Rabbi, we know that thou art a teacher come from God.",
+                "Jesus answered and said unto him, Except a man be born again, he cannot see the kingdom of God.",
+                "For God so loved the world, that he gave his only begotten Son.",
+                "For God sent not his Son into the world to condemn the world; but that the world through him might be saved.",
+            ],
+        },
+        "Romans": {
+            8: [
+                "There is therefore now no condemnation to them which are in Christ Jesus.",
+                "For the law of the Spirit of life in Christ Jesus hath made me free from the law of sin and death.",
+                "For to be carnally minded is death; but to be spiritually minded is life and peace.",
+                "The Spirit itself beareth witness with our spirit, that we are the children of God.",
+                "And we know that all things work together for good to them that love God.",
+            ]
+        },
+        "1 Corinthians": {
+            13: [
+                "Though I speak with the tongues of men and of angels, and have not charity, I am become as sounding brass.",
+                "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up.",
+                "Charity never faileth.",
+                "And now abideth faith, hope, charity, these three; but the greatest of these is charity.",
+            ]
+        },
+    }
+}
+
+
+BOOK_ORDER = list(BOOK_CHAPTERS.keys())
+
+THEMES = {
+    "Creation": ["Genesis 1:1", "Genesis 1:3", "John 1:3"],
+    "Light": ["Genesis 1:3", "John 1:4", "John 1:5"],
+    "Shepherd": ["Psalm 23:1", "Psalm 23:2", "Psalm 23:4"],
+    "Salvation": ["Isaiah 53:5", "John 3:3", "John 3:5", "Romans 8:1"],
+    "Love": ["John 3:4", "Romans 8:5", "1 Corinthians 13:2", "1 Corinthians 13:4"],
+}
+
+STUDY = {
+    "Genesis 1:1": {
+        "teaching": "A foundational verse for creation, origin, and divine agency.",
+        "cross": ["John 1:1", "John 1:3"],
+        "language": [("created", "bara", "Hebrew verb often associated with God's creative action.")],
+        "map": "Ancient Near East context: creation narrative, no single journey location.",
+    },
+    "Psalm 23:1": {
+        "teaching": "The shepherd image presents God as provider, guide, protector, and host.",
+        "cross": ["John 10:11", "Psalm 23:4"],
+        "language": [("LORD", "YHWH", "Covenant name of God in the Hebrew Bible.")],
+        "map": "Pastoral imagery from ancient Israel and Judah.",
+    },
+    "John 1:1": {
+        "teaching": "John opens by connecting Jesus, the Word, with creation and divine identity.",
+        "cross": ["Genesis 1:1", "Genesis 1:3", "John 1:3"],
+        "language": [("Word", "Logos", "Greek term carrying meaning of word, reason, message, or ordering principle.")],
+        "map": "John's Gospel moves through Judea, Galilee, and Jerusalem.",
+    },
+    "John 3:4": {
+        "teaching": "A compact summary of divine love and salvation. In the full Bible this corresponds to John 3:16.",
+        "cross": ["Romans 8:1", "1 Corinthians 13:4"],
+        "language": [("loved", "agapao", "Greek verb associated with self-giving love.")],
+        "map": "Conversation with Nicodemus, traditionally associated with Jerusalem.",
+    },
+    "Romans 8:1": {
+        "teaching": "A key verse for assurance, grace, and freedom from condemnation in Christ.",
+        "cross": ["John 3:5", "Romans 8:2"],
+        "language": [("condemnation", "katakrima", "Judicial term for sentence or penalty.")],
+        "map": "Paul's letter to believers in Rome.",
+    },
+}
+
+
+def read_notes():
+    if NOTES_PATH.exists():
+        try:
+            return json.loads(NOTES_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def write_notes(notes):
+    NOTES_PATH.write_text(json.dumps(notes, indent=2), encoding="utf-8")
+
+
+def read_journal():
+    if JOURNAL_PATH.exists():
+        try:
+            return json.loads(JOURNAL_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            return []
+    return []
+
+
+def write_journal(entries):
+    JOURNAL_PATH.write_text(json.dumps(entries, indent=2), encoding="utf-8")
+
+
+def normalize_bible_data(data):
+    normalized = {}
+    for translation, books in data.items():
+        normalized[translation] = {}
+        for book, chapters in books.items():
+            normalized[translation][book] = {}
+            for chapter, verses in chapters.items():
+                try:
+                    chapter_number = int(chapter)
+                except Exception:
+                    continue
+                normalized[translation][book][chapter_number] = list(verses)
+    return normalized
+
+
+def sample_bible():
+    return json.loads(json.dumps(BIBLE))
+
+
+def load_bible_library():
+    if BIBLE_DATA_PATH.exists():
+        try:
+            data = json.loads(BIBLE_DATA_PATH.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and data.get("translations"):
+                return normalize_bible_data(data["translations"]), data.get("label", "KJV local")
+            if isinstance(data, dict) and "KJV" in data:
+                return normalize_bible_data(data), "KJV local"
+        except Exception:
+            pass
+    return normalize_bible_data(sample_bible()), "KJV sample"
+
+
+class BibleReferenceApp(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Bible Reference Study Tool - Windows 11 Edition")
+        self.geometry("1260x780")
+        self.minsize(980, 640)
+
+        global BIBLE
+        BIBLE, self.library_label = load_bible_library()
+
+        self.translation = "KJV" if "KJV" in BIBLE else next(iter(BIBLE.keys()), "KJV")
+        self.notes = read_notes()
+        self.journal_entries = read_journal()
+        self.download_busy = False
+        self.search_refs = []
+
+        self.validate_startup_references()
+
+        books = self.available_books()
+        self.current_book = books[0] if books else "Genesis"
+        self.current_chapter = self.first_available_chapter(self.current_book)
+        self.selected_ref = self.first_available_reference() or f"{self.current_book} {self.current_chapter}:1"
+
+        self.build_style()
+        self.build_ui()
+        self.render_all()
+        self.select_verse(self.selected_ref, rerender=False)
+        self.after(400, self.check_connection_async)
+
+    def build_style(self):
+        style = ttk.Style(self)
+        try:
+            style.theme_use("clam")
+        except Exception:
+            pass
+
+        WIN11_BG = "#F3F3F3"
+        WIN11_PANEL = "#FFFFFF"
+        WIN11_ACCENT = "#0078D4"
+        WIN11_TEXT = "#1F1F1F"
+        WIN11_TEXT_SECONDARY = "#616161"
+        WIN11_BORDER = "#E0E0E0"
+
+        style.configure("TFrame", background=WIN11_BG)
+        style.configure("Panel.TFrame", background=WIN11_PANEL)
+
+        style.configure("Title.TLabel", font=("Segoe UI", 18, "bold"), foreground=WIN11_TEXT, background=WIN11_PANEL)
+        style.configure("Section.TLabel", font=("Segoe UI", 10, "bold"), foreground=WIN11_TEXT, background=WIN11_PANEL)
+        style.configure("Muted.TLabel", font=("Segoe UI", 9), foreground=WIN11_TEXT_SECONDARY, background=WIN11_PANEL)
+        style.configure("TLabel", font=("Segoe UI", 10), foreground=WIN11_TEXT, background=WIN11_PANEL)
+
+        style.configure("Primary.TButton", font=("Segoe UI", 10, "bold"), foreground="white", background=WIN11_ACCENT, borderwidth=0, padding=10)
+        style.map("Primary.TButton", background=[("active", "#106EBE"), ("pressed", "#0D5AA0")])
+
+        style.configure("TButton", font=("Segoe UI", 10), background=WIN11_BORDER, foreground=WIN11_TEXT, borderwidth=0, padding=8)
+        style.map("TButton", background=[("active", "#D0D0D0"), ("pressed", "#C0C0C0")])
+
+        style.configure("TCombobox", fieldbackground=WIN11_PANEL, background=WIN11_PANEL, foreground=WIN11_TEXT, font=("Segoe UI", 10), padding=6)
+
+        self.configure(bg=WIN11_BG)
+
+    def build_ui(self):
+        header = ttk.Frame(self, padding=(14, 12))
+        header.pack(fill="x")
+
+        title_box = ttk.Frame(header)
+        title_box.pack(side="left", fill="x", expand=True)
+        ttk.Label(title_box, text="Bible Reference Study Tool", style="Title.TLabel").pack(anchor="w")
+        ttk.Label(title_box, text="Desktop prototype: reader, concordance, themes, maps, and notes", style="Muted.TLabel").pack(anchor="w")
+
+        lookup = ttk.Frame(header)
+        lookup.pack(side="right", fill="x")
+        self.lookup_var = tk.StringVar()
+        entry = ttk.Entry(lookup, textvariable=self.lookup_var, width=38)
+        entry.pack(side="left", padx=(0, 8))
+        entry.bind("<Return>", lambda _event: self.open_lookup())
+        ttk.Button(lookup, text="Open Passage", command=self.open_lookup, style="Primary.TButton").pack(side="left")
+
+        body = ttk.PanedWindow(self, orient="horizontal")
+        body.pack(fill="both", expand=True)
+
+        left = ttk.Frame(body, padding=10)
+        center = ttk.Frame(body, padding=12)
+        right = ttk.Frame(body, padding=10)
+
+        body.add(left, weight=1)
+        body.add(center, weight=4)
+        body.add(right, weight=2)
+
+        self.build_left(left)
+        self.build_center(center)
+        self.build_right(right)
+
+    def available_books(self):
+        books = BIBLE.get(self.translation, {})
+        ordered = [book for book in BOOK_ORDER if book in books]
+        extras = sorted(book for book in books if book not in ordered)
+        return ordered + extras
+
+    def available_chapters(self, book=None):
+        book = book or self.current_book
+        chapters = BIBLE.get(self.translation, {}).get(book, {})
+        return sorted(chapters.keys())
+
+    def first_available_chapter(self, book=None):
+        chapters = self.available_chapters(book)
+        return chapters[0] if chapters else 1
+
+    def chapter_exists(self, book, chapter):
+        return chapter in BIBLE.get(self.translation, {}).get(book, {})
+
+    def first_available_reference(self):
+        for book in self.available_books():
+            chapters = self.available_chapters(book)
+            if chapters:
+                first_chapter = chapters[0]
+                verses = BIBLE.get(self.translation, {}).get(book, {}).get(first_chapter, [])
+                if verses:
+                    self.current_book = book
+                    self.current_chapter = first_chapter
+                    return f"{book} {first_chapter}:1"
+        return None
+
+    def translation_choices(self):
+        choices = []
+        for code, label in TRANSLATION_LABELS.items():
+            status = "local" if code in BIBLE else "import needed"
+            choices.append(f"{code} - {label} ({status})")
+        return choices
+
+    def translation_choice_for(self, code):
+        for choice in self.translation_choices():
+            if choice.startswith(f"{code} - "):
+                return choice
+        return code
+
+    def translation_code_from_choice(self, choice):
+        return str(choice).split(" - ", 1)[0].strip()
+
+    def reference_parts(self, ref):
+        match = re.match(r"^(.+?)\s+(\d+)(?::(\d+))?$", ref.strip())
+        if not match:
+            return None
+        return match.group(1), int(match.group(2)), int(match.group(3) or 1)
+
+    def verse_text(self, ref):
+        parts = self.reference_parts(ref)
+        if not parts:
+            return ""
+
+        book, chapter, verse = parts
+        verses = BIBLE.get(self.translation, {}).get(book, {}).get(chapter, [])
+        if verse <= 0 or verse > len(verses):
+            return ""
+        return verses[verse - 1]
+
+    def reference_exists(self, ref):
+        return bool(self.verse_text(ref))
+
+    def sanitize_reference_list(self, refs):
+        cleaned = []
+        for ref in refs:
+            if isinstance(ref, str) and self.reference_exists(ref):
+                cleaned.append(ref)
+        return cleaned
+
+    def validate_startup_references(self):
+        global THEMES, STUDY
+
+        cleaned_themes = {}
+        for theme, refs in THEMES.items():
+            valid_refs = self.sanitize_reference_list(refs)
+            if valid_refs:
+                cleaned_themes[theme] = valid_refs
+        THEMES = cleaned_themes
+
+        cleaned_study = {}
+        for ref, entry in STUDY.items():
+            if not self.reference_exists(ref):
+                continue
+
+            safe_entry = dict(entry)
+            cross_refs = safe_entry.get("cross", [])
+            safe_entry["cross"] = self.sanitize_reference_list(cross_refs)
+            cleaned_study[ref] = safe_entry
+
+        STUDY = cleaned_study
+
+    def check_connection_async(self):
+        threading.Thread(target=self.check_connection_worker, daemon=True).start()
+
+    def check_connection_worker(self):
+        try:
+            request = urllib.request.Request(
+                "[bible-api.com](https://bible-api.com/John%201:1?translation=kjv)",
+                headers={"User-Agent": "BibleReferenceStudyTool/0.1"}
+            )
+            with urllib.request.urlopen(request, timeout=8) as response:
+                online = response.status == 200
+        except Exception:
+            online = False
+        self.after(0, lambda: self.set_connection_status(online))
+
+    def set_connection_status(self, online):
+        if online:
+            self.connection_var.set("Online - web access available")
+            self.connection_button.configure(bg="#2f7d4f", fg="white")
+        else:
+            self.connection_var.set("Offline - using local library")
+            self.connection_button.configure(bg="#b64b3f", fg="white")
+
+    def download_full_kjv(self):
+        if self.download_busy:
+            return
+        if not messagebox.askyesno(
+            "Download Full KJV",
+            "Download the full KJV text into the local library?\n\nThis may take several minutes, but afterward the reader can use it offline.",
+        ):
+            return
+        self.download_busy = True
+        self.library_status.set("Starting full KJV download...")
+        threading.Thread(target=self.download_full_kjv_worker, daemon=True).start()
+
+    def download_full_kjv_worker(self):
+        downloaded = {"KJV": {}}
+        try:
+            total = sum(BOOK_CHAPTERS.values())
+            done = 0
+            for book, chapter_count in BOOK_CHAPTERS.items():
+                downloaded["KJV"][book] = {}
+                for chapter in range(1, chapter_count + 1):
+                    reference = urllib.parse.quote(f"{book} {chapter}")
+                    url = BIBLE_API_URL.format(reference=reference)
+                    request = urllib.request.Request(url, headers={"User-Agent": "BibleReferenceStudyTool/0.1"})
+                    with urllib.request.urlopen(request, timeout=20) as response:
+                        payload = json.loads(response.read().decode("utf-8"))
+                    verses = payload.get("verses", [])
+                    if not verses:
+                        raise RuntimeError(f"No verses returned for {book} {chapter}.")
+                    verses.sort(key=lambda item: int(item.get("verse", 0)))
+                    downloaded["KJV"][book][chapter] = [item.get("text", "").strip() for item in verses]
+                    done += 1
+                    if done % 5 == 0 or done == total:
+                        self.after(
+                            0,
+                            lambda d=done, t=total, b=book, c=chapter: self.library_status.set(
+                                f"Downloading KJV: {d}/{t} chapters ({b} {c})"
+                            ),
+                        )
+            DATA_DIR.mkdir(parents=True, exist_ok=True)
+            BIBLE_DATA_PATH.write_text(
+                json.dumps({"label": "KJV full local", "source": "bible-api.com KJV", "translations": downloaded}, indent=2),
+                encoding="utf-8",
+            )
+            self.after(0, lambda: self.load_downloaded_library("KJV full local"))
+        except Exception as exc:
+            self.after(0, lambda e=exc: messagebox.showerror("Download Full KJV", f"Download failed:\n{e}"))
+            self.after(0, lambda: self.library_status.set("Download failed. Existing local library is unchanged."))
+        finally:
+            self.download_busy = False
+
+    def load_downloaded_library(self, label):
+        global BIBLE
+        BIBLE, self.library_label = load_bible_library()
+
+        if hasattr(self, "translation_combo"):
+            self.translation_combo.configure(values=self.translation_choices())
+
+        if self.translation not in BIBLE:
+            self.translation = "KJV" if "KJV" in BIBLE else next(iter(BIBLE.keys()), "KJV")
+
+        self.validate_startup_references()
+
+        self.translation_var.set(self.translation_choice_for(self.translation))
+        self.library_status.set(f"Loaded: {label}")
+
+        books = self.available_books()
+        self.current_book = books[0] if books else "Genesis"
+        self.current_chapter = self.first_available_chapter(self.current_book)
+        self.selected_ref = self.first_available_reference() or f"{self.current_book} {self.current_chapter}:1"
+
+        self.render_all()
+        self.select_verse(self.selected_ref)
+        messagebox.showinfo("Download Full KJV", "The full KJV local library has been saved.")
+
+    def import_bible_json(self):
+        path = filedialog.askopenfilename(
+            title="Import Bible JSON",
+            initialdir=str(APP_DIR),
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")],
+        )
+        if not path:
+            return
+
+        try:
+            data = json.loads(Path(path).read_text(encoding="utf-8"))
+            if isinstance(data, dict) and data.get("translations"):
+                translations = normalize_bible_data(data["translations"])
+                label = data.get("label", "Imported Bible")
+            else:
+                translations = normalize_bible_data(data)
+                label = "Imported Bible"
+
+            supported = set(TRANSLATION_LABELS)
+            if not supported.intersection(translations):
+                raise RuntimeError("The JSON needs at least one supported translation key: KJV, NIV, or ESV.")
+
+            existing = {}
+            if BIBLE_DATA_PATH.exists():
+                try:
+                    existing_payload = json.loads(BIBLE_DATA_PATH.read_text(encoding="utf-8"))
+                    existing = normalize_bible_data(existing_payload.get("translations", existing_payload))
+                except Exception:
+                    existing = {}
+
+            existing.update({code: translation_data for code, translation_data in translations.items() if code in supported})
+
+            DATA_DIR.mkdir(parents=True, exist_ok=True)
+            BIBLE_DATA_PATH.write_text(
+                json.dumps({"label": label, "translations": existing}, indent=2),
+                encoding="utf-8"
+            )
+            self.load_downloaded_library(label)
+        except Exception as exc:
+            messagebox.showerror("Import Bible JSON", f"Could not import that file:\n{exc}")
+
+    def build_left(self, parent):
+        ttk.Label(parent, text="Local Library", style="Section.TLabel").pack(anchor="w")
+
+        self.connection_var = tk.StringVar(value="Checking web...")
+        self.connection_button = tk.Button(parent, textvariable=self.connection_var, bg="#b64b3f", fg="white", relief="flat")
+        self.connection_button.pack(fill="x", pady=(4, 6))
+
+        library_buttons = ttk.Frame(parent)
+        library_buttons.pack(fill="x", pady=(0, 6))
+        ttk.Button(library_buttons, text="Download Full KJV", command=self.download_full_kjv).pack(side="left", fill="x", expand=True)
+        ttk.Button(library_buttons, text="Import JSON", command=self.import_bible_json).pack(side="left", fill="x", expand=True, padx=(6, 0))
+
+        self.library_status = tk.StringVar(value=f"Loaded: {self.library_label}")
+        ttk.Label(parent, textvariable=self.library_status, style="Muted.TLabel", wraplength=260).pack(anchor="w", pady=(0, 10))
+
+        ttk.Label(parent, text="Translation", style="Section.TLabel").pack(anchor="w")
+        self.translation_var = tk.StringVar(value=self.translation_choice_for(self.translation))
+        self.translation_combo = ttk.Combobox(parent, textvariable=self.translation_var, values=self.translation_choices(), state="readonly")
+        self.translation_combo.pack(fill="x", pady=(4, 10))
+        self.translation_combo.bind("<<ComboboxSelected>>", self.on_translation_selected)
+
+        ttk.Label(parent, text="Books", style="Section.TLabel").pack(anchor="w")
+        self.book_list = tk.Listbox(parent, height=8, exportselection=False)
+        self.book_list.pack(fill="x", pady=(4, 10))
+        self.book_list.bind("<<ListboxSelect>>", self.on_book_selected)
+
+        ttk.Label(parent, text="Chapters", style="Section.TLabel").pack(anchor="w")
+        self.chapter_list = tk.Listbox(parent, height=5, exportselection=False)
+        self.chapter_list.pack(fill="x", pady=(4, 10))
+        self.chapter_list.bind("<<ListboxSelect>>", self.on_chapter_selected)
+
+        ttk.Label(parent, text="Concordance Search", style="Section.TLabel").pack(anchor="w")
+        search_row = ttk.Frame(parent)
+        search_row.pack(fill="x", pady=(4, 6))
+        self.search_var = tk.StringVar()
+        search_entry = ttk.Entry(search_row, textvariable=self.search_var)
+        search_entry.pack(side="left", fill="x", expand=True, padx=(0, 6))
+        search_entry.bind("<Return>", lambda _event: self.search_word())
+        ttk.Button(search_row, text="Find", command=self.search_word).pack(side="left")
+
+        self.result_list = tk.Listbox(parent, height=9, exportselection=False)
+        self.result_list.pack(fill="both", expand=True, pady=(0, 10))
+        self.result_list.bind("<<ListboxSelect>>", self.on_result_selected)
+
+        ttk.Label(parent, text="Thematic Tracing", style="Section.TLabel").pack(anchor="w")
+        self.theme_list = tk.Listbox(parent, height=7, exportselection=False)
+        self.theme_list.pack(fill="x", pady=(4, 0))
+        self.theme_list.bind("<<ListboxSelect>>", self.on_theme_selected)
+
+    def build_center(self, parent):
+        title_row = ttk.Frame(parent)
+        title_row.pack(fill="x")
+
+        self.chapter_title = ttk.Label(title_row, text="", style="Title.TLabel")
+        self.chapter_title.pack(side="left", anchor="w")
+
+        self.reader = tk.Text(parent, wrap="word", font=("Georgia", 13), padx=14, pady=12, relief="flat", bg="#fbfcfd")
+        self.reader.pack(fill="both", expand=True, pady=(10, 0))
+        self.reader.tag_configure("verse_number", foreground="#b8872f", font=("Segoe UI", 8, "bold"))
+        self.reader.tag_configure("selected", background="#edf6f5")
+        self.reader.configure(state="disabled")
+
+    def build_right(self, parent):
+        ttk.Label(parent, text="Selected Verse", style="Section.TLabel").pack(anchor="w")
+        self.selected_label = ttk.Label(parent, text="", font=("Segoe UI", 11, "bold"))
+        self.selected_label.pack(anchor="w", pady=(4, 2))
+
+        self.selected_text = tk.Text(parent, height=5, wrap="word", relief="solid", borderwidth=1)
+        self.selected_text.pack(fill="x", pady=(0, 12))
+        self.selected_text.configure(state="disabled")
+
+        ttk.Label(parent, text="Teaching Notes", style="Section.TLabel").pack(anchor="w")
+        self.teaching_text = tk.Text(parent, height=5, wrap="word", relief="solid", borderwidth=1)
+        self.teaching_text.pack(fill="x", pady=(4, 12))
+        self.teaching_text.configure(state="disabled")
+
+        ttk.Label(parent, text="Cross References", style="Section.TLabel").pack(anchor="w")
+        self.cross_list = tk.Listbox(parent, height=5, exportselection=False)
+        self.cross_list.pack(fill="x", pady=(4, 12))
+        self.cross_list.bind("<<ListboxSelect>>", self.on_cross_selected)
+
+        ttk.Label(parent, text="Original Language", style="Section.TLabel").pack(anchor="w")
+        self.language_text = tk.Text(parent, height=5, wrap="word", relief="solid", borderwidth=1)
+        self.language_text.pack(fill="x", pady=(4, 12))
+        self.language_text.configure(state="disabled")
+
+        ttk.Label(parent, text="Map / Place Reference", style="Section.TLabel").pack(anchor="w")
+        self.map_text = tk.Text(parent, height=4, wrap="word", relief="solid", borderwidth=1)
+        self.map_text.pack(fill="x", pady=(4, 12))
+        self.map_text.configure(state="disabled")
+
+        ttk.Label(parent, text="Personal Notes", style="Section.TLabel").pack(anchor="w")
+        self.note_status_var = tk.StringVar(value="")
+        ttk.Label(parent, textvariable=self.note_status_var, style="Muted.TLabel").pack(anchor="w")
+
+        self.note_text = tk.Text(parent, height=7, wrap="word")
+        self.note_text.pack(fill="both", expand=True, pady=(4, 8))
+
+        note_buttons = ttk.Frame(parent)
+        note_buttons.pack(fill="x")
+        ttk.Button(note_buttons, text="Save Note", command=self.save_note).pack(side="left", fill="x", expand=True)
+        ttk.Button(note_buttons, text="Clear", command=self.clear_note).pack(side="left", fill="x", expand=True, padx=(8, 0))
+
+        ttk.Button(parent, text="Journal This", command=self.open_journal_window, style="Primary.TButton").pack(fill="x", pady=(10, 0))
+
+    def render_all(self):
+        self.render_books()
+        self.render_chapters()
+        self.render_themes()
+        self.render_chapter()
+
+    def render_books(self):
+        self.book_list.delete(0, "end")
+        for book in self.available_books():
+            self.book_list.insert("end", book)
+        self.select_list_value(self.book_list, self.current_book)
+
+    def render_chapters(self):
+        self.chapter_list.delete(0, "end")
+        available = self.available_chapters(self.current_book)
+
+        for chapter in available:
+            self.chapter_list.insert("end", f"Chapter {chapter}")
+
+        if self.current_chapter in available:
+            index = available.index(self.current_chapter)
+            self.chapter_list.selection_set(index)
+            self.chapter_list.see(index)
+        elif available:
+            self.current_chapter = available[0]
+            self.chapter_list.selection_set(0)
+            self.chapter_list.see(0)
+
+    def render_themes(self):
+        self.theme_list.delete(0, "end")
+        for theme, refs in THEMES.items():
+            self.theme_list.insert("end", f"{theme} ({len(refs)})")
+
+    def render_chapter(self):
+        self.chapter_title.configure(text=f"{self.current_book} {self.current_chapter}")
+        self.reader.configure(state="normal")
+        self.reader.delete("1.0", "end")
+
+        verses = (
+            BIBLE.get(self.translation, {})
+            .get(self.current_book, {})
+            .get(self.current_chapter)
+        )
+
+        if not verses:
+            self.reader.insert(
+                "end",
+                f"{self.current_book} {self.current_chapter} is not available in the current local library.\n\n"
+                "Download the full KJV or import a Bible JSON file to view this chapter."
+            )
+            self.reader.configure(state="disabled")
+            return
+
+        for index, text in enumerate(verses, start=1):
+            ref = f"{self.current_book} {self.current_chapter}:{index}"
+            start = self.reader.index("end")
+            self.reader.insert("end", f"{index} ", ("verse_number",))
+            self.reader.insert("end", f"{text}\n\n")
+            end = self.reader.index("end")
+            self.reader.tag_add(ref, start, end)
+            self.reader.tag_bind(ref, "<Button-1>", lambda _event, r=ref: self.select_verse(r))
+            if ref == self.selected_ref:
+                self.reader.tag_add("selected", start, end)
+
+        self.reader.configure(state="disabled")
+
+    def select_verse(self, ref, rerender=True):
+        if not self.reference_exists(ref):
+            fallback = self.first_available_reference()
+            if not fallback:
+                return
+            ref = fallback
+
+        self.selected_ref = ref
+        self.selected_label.configure(text=ref)
+        self.set_text(self.selected_text, self.verse_text(ref))
+
+        entry = STUDY.get(ref, {})
+        self.set_text(self.teaching_text, entry.get("teaching", "No teaching note has been added for this verse yet."))
+
+        self.cross_list.delete(0, "end")
+        for cross_ref in entry.get("cross", []):
+            if self.reference_exists(cross_ref):
+                self.cross_list.insert("end", cross_ref)
+        if not self.cross_list.size():
+            self.cross_list.insert("end", "No cross references added yet")
+
+        language_lines = []
+        for word, original, note in entry.get("language", []):
+            language_lines.append(f"{word} - {original}\n{note}")
+        self.set_text(self.language_text, "\n\n".join(language_lines) or "Original language notes can be added here later.")
+        self.set_text(self.map_text, entry.get("map", "No map reference has been added for this passage yet."))
+
+        self.note_text.delete("1.0", "end")
+        self.note_text.insert("1.0", self.notes.get(ref, ""))
+        self.note_status_var.set("Saved note attached to this passage." if self.notes.get(ref) else "No saved note for this passage yet.")
+
+        if rerender:
+            parts = self.reference_parts(ref)
+            if parts:
+                self.current_book, self.current_chapter, _verse = parts
+            self.render_chapter()
+
+    def set_text(self, widget, text):
+        widget.configure(state="normal")
+        widget.delete("1.0", "end")
+        widget.insert("1.0", text)
+        widget.configure(state="disabled")
+
+    def all_references(self):
+        for book, chapters in BIBLE.get(self.translation, {}).items():
+            for chapter, verses in chapters.items():
+                for index, text in enumerate(verses, start=1):
+                    yield f"{book} {chapter}:{index}", text
+
+    def open_reference(self, ref):
+        parts = self.reference_parts(ref)
+        if not parts:
+            messagebox.showinfo("Passage Lookup", "Use a reference like John 1:1 or Psalm 23.")
+            return
+
+        book, chapter, verse = parts
+
+        if book not in BIBLE.get(self.translation, {}):
+            messagebox.showinfo("Passage Lookup", "That book is not in the current local library.")
+            return
+
+        if chapter not in BIBLE.get(self.translation, {}).get(book, {}):
+            messagebox.showinfo("Passage Lookup", "That chapter is not in the current local library yet.")
+            return
+
+        verses = BIBLE.get(self.translation, {}).get(book, {}).get(chapter, [])
+        if verse < 1 or verse > len(verses):
+            messagebox.showinfo("Passage Lookup", "That verse is not available in the current local library.")
+            return
+
+        self.current_book = book
+        self.current_chapter = chapter
+        self.selected_ref = f"{book} {chapter}:{verse}"
+        self.render_all()
+        self.select_verse(self.selected_ref)
+
+    def open_lookup(self):
+        self.open_reference(self.lookup_var.get().strip())
+
+    def search_word(self):
+        query = self.search_var.get().strip().lower()
+        self.result_list.delete(0, "end")
+        self.search_refs = []
+
+        if not query:
+            return
+
+        for ref, text in self.all_references():
+            if query in text.lower():
+                self.search_refs.append(ref)
+                self.result_list.insert("end", f"{ref} - {text[:70]}")
+
+        if not self.search_refs:
+            self.result_list.insert("end", "No matches in the prototype sample")
+
+    def save_note(self):
+        self.notes[self.selected_ref] = self.note_text.get("1.0", "end").strip()
+        if not self.notes[self.selected_ref]:
+            self.notes.pop(self.selected_ref, None)
+        write_notes(self.notes)
+        self.note_status_var.set("Saved note attached to this passage." if self.notes.get(self.selected_ref) else "No saved note for this passage yet.")
+
+    def clear_note(self):
+        self.notes.pop(self.selected_ref, None)
+        write_notes(self.notes)
+        self.note_text.delete("1.0", "end")
+        self.note_status_var.set("No saved note for this passage yet.")
+
+    def open_journal_window(self):
+        JournalWindow(self, self.selected_ref, self.verse_text(self.selected_ref))
+
+    def on_book_selected(self, _event=None):
+        if not self.book_list.curselection():
+            return
+
+        self.current_book = self.book_list.get(self.book_list.curselection()[0])
+        self.current_chapter = self.first_available_chapter(self.current_book)
+        self.selected_ref = f"{self.current_book} {self.current_chapter}:1"
+
+        self.render_all()
+        self.select_verse(self.selected_ref)
+
+    def on_translation_selected(self, _event=None):
+        requested = self.translation_code_from_choice(self.translation_var.get())
+
+        if requested not in BIBLE:
+            self.translation_var.set(self.translation_choice_for(self.translation))
+            messagebox.showinfo(
+                "Translation Not Imported",
+                f"{TRANSLATION_LABELS.get(requested, requested)} is not in the local library yet.\n\n"
+                "Because NIV and ESV are copyrighted, the app does not bundle their full text. "
+                "Use Import JSON if you have a licensed/local copy you are allowed to use.",
+            )
+            return
+
+        self.translation = requested
+        self.validate_startup_references()
+
+        books = self.available_books()
+        self.current_book = books[0] if books else "Genesis"
+        self.current_chapter = self.first_available_chapter(self.current_book)
+        self.selected_ref = self.first_available_reference() or f"{self.current_book} {self.current_chapter}:1"
+
+        self.render_all()
+        self.select_verse(self.selected_ref)
+
+    def on_chapter_selected(self, _event=None):
+        if not self.chapter_list.curselection():
+            return
+
+        label = self.chapter_list.get(self.chapter_list.curselection()[0])
+        requested_chapter = int(label.split()[-1])
+
+        if not self.chapter_exists(self.current_book, requested_chapter):
+            messagebox.showinfo("Chapter Not Available", "That chapter is not loaded in the current local library.")
+            return
+
+        self.current_chapter = requested_chapter
+        self.selected_ref = f"{self.current_book} {self.current_chapter}:1"
+
+        self.render_all()
+        self.select_verse(self.selected_ref)
+
+    def on_result_selected(self, _event=None):
+        if not self.result_list.curselection() or not getattr(self, "search_refs", None):
+            return
+
+        index = self.result_list.curselection()[0]
+        if index < len(self.search_refs):
+            self.open_reference(self.search_refs[index])
+
+    def on_theme_selected(self, _event=None):
+        if not self.theme_list.curselection():
+            return
+
+        label = self.theme_list.get(self.theme_list.curselection()[0])
+        theme = label.rsplit(" (", 1)[0]
+        refs = THEMES.get(theme, [])
+
+        self.search_refs = []
+        self.result_list.delete(0, "end")
+
+        for ref in refs:
+            text = self.verse_text(ref)
+            if text:
+                self.search_refs.append(ref)
+                self.result_list.insert("end", f"{ref} - {text[:70]}")
+
+        if self.search_refs:
+            self.open_reference(self.search_refs[0])
+
+    def on_cross_selected(self, _event=None):
+        if not self.cross_list.curselection():
+            return
+
+        ref = self.cross_list.get(self.cross_list.curselection()[0])
+        if ":" in ref and self.reference_exists(ref):
+            self.open_reference(ref)
+
+    def select_list_value(self, listbox, value):
+        for index in range(listbox.size()):
+            if listbox.get(index) == value:
+                listbox.selection_set(index)
+                listbox.see(index)
+                return
+
+
+class JournalWindow(tk.Toplevel):
+    def __init__(self, app, reference, verse_text):
+        super().__init__(app)
+        self.app = app
+        self.reference = reference
+        self.verse_text = verse_text
+        self.image_paths = []
+        self.title(f"Private Journal - {reference}")
+        self.geometry("760x680")
+        self.minsize(620, 520)
+        self.build_ui()
+        self.load_existing_entries()
+
+    def build_ui(self):
+        root = ttk.Frame(self, padding=12)
+        root.pack(fill="both", expand=True)
+
+        ttk.Label(root, text=f"Journal This: {self.reference}", style="Title.TLabel").pack(anchor="w")
+        ttk.Label(root, text=self.verse_text, style="Muted.TLabel", wraplength=710).pack(anchor="w", pady=(4, 12))
+
+        ttk.Label(root, text="Reflection / Notes", style="Section.TLabel").pack(anchor="w")
+        self.reflection_text = tk.Text(root, height=8, wrap="word")
+        self.reflection_text.pack(fill="both", expand=True, pady=(4, 10))
+
+        ttk.Label(root, text="Prayer", style="Section.TLabel").pack(anchor="w")
+        self.prayer_text = tk.Text(root, height=6, wrap="word")
+        self.prayer_text.pack(fill="both", expand=True, pady=(4, 10))
+
+        image_row = ttk.Frame(root)
+        image_row.pack(fill="x", pady=(0, 8))
+        ttk.Button(image_row, text="Add Image Link", command=self.add_image).pack(side="left")
+        ttk.Button(image_row, text="Save Journal Entry", command=self.save_entry, style="Primary.TButton").pack(side="right")
+
+        self.image_label = ttk.Label(root, text="No images linked yet.", style="Muted.TLabel", wraplength=710)
+        self.image_label.pack(anchor="w", pady=(0, 10))
+
+        ttk.Label(root, text="Previous Journal Entries For This Passage", style="Section.TLabel").pack(anchor="w")
+        self.entries_list = tk.Listbox(root, height=7, exportselection=False)
+        self.entries_list.pack(fill="x", pady=(4, 0))
+
+    def add_image(self):
+        path = filedialog.askopenfilename(
+            title="Link Image To Journal Entry",
+            filetypes=[("Image files", "*.png;*.jpg;*.jpeg;*.gif;*.webp;*.tif;*.tiff"), ("All files", "*.*")],
+        )
+        if not path:
+            return
+        self.image_paths.append(path)
+        self.image_label.configure(text="\n".join(self.image_paths))
+
+    def load_existing_entries(self):
+        self.entries_list.delete(0, "end")
+        matches = [entry for entry in self.app.journal_entries if entry.get("reference") == self.reference]
+        if not matches:
+            self.entries_list.insert("end", "No journal entries for this passage yet.")
+            return
+
+        for entry in matches[-20:]:
+            created = entry.get("created", "")
+            summary = (entry.get("reflection", "") or entry.get("prayer", "")).replace("\n", " ")[:70]
+            self.entries_list.insert("end", f"{created} - {summary}")
+
+    def save_entry(self):
+        reflection = self.reflection_text.get("1.0", "end").strip()
+        prayer = self.prayer_text.get("1.0", "end").strip()
+
+        if not reflection and not prayer and not self.image_paths:
+            messagebox.showinfo("Private Journal", "Add a reflection, prayer, or image before saving.")
+            return
+
+        entry = {
+            "created": datetime.now().isoformat(timespec="seconds"),
+            "reference": self.reference,
+            "verse": self.verse_text,
+            "reflection": reflection,
+            "prayer": prayer,
+            "images": list(self.image_paths),
+        }
+
+        self.app.journal_entries.append(entry)
+        write_journal(self.app.journal_entries)
+
+        self.reflection_text.delete("1.0", "end")
+        self.prayer_text.delete("1.0", "end")
+        self.image_paths = []
+        self.image_label.configure(text="No images linked yet.")
+        self.load_existing_entries()
+
+        messagebox.showinfo("Private Journal", "Journal entry saved.")
+
+
+if __name__ == "__main__":
+    BibleReferenceApp().mainloop()

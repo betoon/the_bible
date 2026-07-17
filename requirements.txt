@@ -1,0 +1,5 @@
+Pillow>=9.0.0
+pypdf>=3.0.0
+PyPDF2>=3.0.0
+pypdfium2>=4.0.0
+PyMuPDF>=1.22.0

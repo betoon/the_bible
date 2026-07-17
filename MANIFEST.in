@@ -1,0 +1,12 @@
+include README.md
+include USER_GUIDE.md
+include REFERENCE_GUIDE.md
+include DEVELOPERS_GUIDE.md
+include PACKAGING.md
+include Bible_Reference_Study_Tool.spec
+include build.bat
+include build_release.bat
+recursive-include bible_app/config *.ini
+recursive-include data *.txt *.json *.pdf
+recursive-include study_data *.json
+recursive-include maps *
