@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Abraham's Journey Tracker</name>
+    <description>Chronological migration of Abraham from Ur of the Chaldeans to Canaan.</description>
+    
+    <!-- Custom styling for the path vector line -->
+    <Style id="journeyLine">
+      <LineStyle>
+        <color>ff0000ff</color> <!-- Vibrant Red -->
+        <width>4</width>
+      </LineStyle>
+    </Style>
+
+    <!-- Folder containing key landmarks -->
+    <Folder>
+      <name>Abrahamic Stations</name>
+      <Placemark>
+        <name>1. Ur of the Chaldeans</name>
+        <description>Genesis 11:31 - Abraham's ancestral homeland in southern Mesopotamia.</description>
+        <Point><coordinates>46.1031,30.9628,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>2. Haran</name>
+        <description>Genesis 11:31 - Where Abraham settled with his father Terah before receiving God's call.</description>
+        <Point><coordinates>39.0298,36.8648,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>3. Shechem</name>
+        <description>Genesis 12:6 - First altar built by Abraham inside the Promised Land of Canaan.</description>
+        <Point><coordinates>35.2778,32.2131,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>4. Bethel</name>
+        <description>Genesis 12:8 - Pitching his tent between Bethel and Ai, building a secondary altar.</description>
+        <Point><coordinates>35.2185,31.9405,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>5. Egypt (Nile Delta)</name>
+        <description>Genesis 12:10 - Driven southwestward into Egypt due to a severe famine in Canaan.</description>
+        <Point><coordinates>31.2583,30.5894,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>6. Hebron (Mamre)</name>
+        <description>Genesis 13:18 - Settling near the great trees of Mamre, his long-term regional encampment.</description>
+        <Point><coordinates>35.0998,31.5297,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- The connecting travel corridor -->
+    <Placemark>
+      <name>Route of Abraham</name>
+      <styleUrl>#journeyLine</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          46.1031,30.9628,0
+          39.0298,36.8648,0
+          35.2778,32.2131,0
+          35.2185,31.9405,0
+          31.2583,30.5894,0
+          35.0998,31.5297,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

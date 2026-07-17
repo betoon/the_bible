@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>The Exodus Route</name>
+    <description>Traditional route mapping the escape from Egypt to the Wilderness stations.</description>
+    
+    <Style id="exodusLine">
+      <LineStyle>
+        <color>ff00a5ff</color> <!-- Bright Orange -->
+        <width>4</width>
+      </LineStyle>
+    </Style>
+
+    <Folder>
+      <name>Exodus Encamps</name>
+      <Placemark>
+        <name>1. Rameses (Goshen)</name>
+        <description>Exodus 12:37 - The structural starting base for the departure out of Egypt.</description>
+        <Point><coordinates>31.8314,30.7864,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>2. Succoth</name>
+        <description>Exodus 13:20 - First regional marshlands staging checkpoint outside Egypt.</description>
+        <Point><coordinates>32.1469,30.5519,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>3. Bitter Lakes (Red Sea Crossing)</name>
+        <description>Exodus 14 - Traditional region representing the dynamic parting of the waters.</description>
+        <Point><coordinates>32.3653,30.3347,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>4. Marah</name>
+        <description>Exodus 15:23 - The Oasis structural location of the bitter waters made sweet.</description>
+        <Point><coordinates>32.9333,29.4667,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>5. Mount Sinai (Jabal Musa)</name>
+        <description>Exodus 19 - Giving of the Ten Commandments and setup of the Tabernacle.</description>
+        <Point><coordinates>33.9750,28.5394,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>6. Kadesh-Barnea</name>
+        <description>Numbers 13 - Base encampment region where spies were sent north into Canaan.</description>
+        <Point><coordinates>34.4172,30.6450,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>7. Plains of Moab (Jordan River Approach)</name>
+        <description>Deuteronomy 34 - Final resting location where Moses views the Land from Mount Nebo.</description>
+        <Point><coordinates>35.7233,31.7672,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Placemark>
+      <name>Path of the Wilderness Wanderings</name>
+      <styleUrl>#exodusLine</styleUrl>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          31.8314,30.7864,0
+          32.1469,30.5519,0
+          32.3653,30.3347,0
+          32.9333,29.4667,0
+          33.9750,28.5394,0
+          34.4172,30.6450,0
+          35.7233,31.7672,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

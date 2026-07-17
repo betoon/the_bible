@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>King David's United Kingdom</name>
+    <description>Approximate limits of the Israelite Empire and vassal states under King David.</description>
+    
+    <Style id="kingdomStyle">
+      <LineStyle>
+        <color>ff00ffff</color> <!-- Yellow Border -->
+        <width>3</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4000ffff</color> <!-- 25% Translucent Yellow Fill -->
+      </PolyStyle>
+    </Style>
+
+    <Folder>
+      <name>Core Cities</name>
+      <Placemark>
+        <name>Jerusalem</name>
+        <description>Conquered from the Jebusites; established as the City of David and capital.</description>
+        <Point><coordinates>35.2137,31.7683,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Hebron</name>
+        <description>Where David was initially anointed king over Judah for 7 years.</description>
+        <Point><coordinates>35.0998,31.5297,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Dan</name>
+        <description>The traditional northern boundary markers of tribal Israel.</description>
+        <Point><coordinates>35.6521,33.2486,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Beersheba</name>
+        <description>The traditional southern boundary anchor of domestic Israel.</description>
+        <Point><coordinates>34.7915,31.2518,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- Boundary Area Polygon -->
+    <Placemark>
+      <name>Davidic Territorial Extent</name>
+      <styleUrl>#kingdomStyle</styleUrl>
+      <Polygon>
+        <tessellate>1</tessellate>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              34.2500,31.1300,0  <!-- River of Egypt / Gaza base -->
+              35.1000,29.5500,0  <!-- Ezion-Geber (Gulf of Aqaba access) -->
+              36.6000,31.5000,0  <!-- Transjordan border (Moab/Ammon limits) -->
+              36.3000,33.5000,0  <!-- Damascus / Aram-Damascus vassal limits -->
+              38.0000,36.0000,0  <!-- Tiphsah on the Euphrates River -->
+              35.9000,34.4000,0  <!-- Northern Lebanons/Phoenicia border text -->
+              34.2500,31.1300,0  <!-- Close Polygon -->
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

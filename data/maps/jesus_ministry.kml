@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Jesus' Ministry Regions</name>
+    <description>Core regional spheres and focal ministry hubs of first-century Israel.</description>
+    
+    <!-- Marker Icon Customization -->
+    <Style id="ministryHub">
+      <IconStyle>
+        <scale>1.2</scale>
+      </IconStyle>
+    </Style>
+
+    <!-- Ministry Locations Folder -->
+    <Folder>
+      <name>Key Ministry Hubs</name>
+      <Placemark>
+        <name>Capernaum (Galilee Hub)</name>
+        <description>Matthew 4:13 - Jesus' home base for his northern ministry and numerous miracles.</description>
+        <styleUrl>#ministryHub</styleUrl>
+        <Point><coordinates>35.5752,32.8808,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Nazareth</name>
+        <description>Luke 2:51 - Jesus' childhood home where he grew up before starting his public ministry.</description>
+        <styleUrl>#ministryHub</styleUrl>
+        <Point><coordinates>35.3035,32.6996,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Sychar (Samaria Hub)</name>
+        <description>John 4 - Location of Jacob's Well where Jesus spoke with the Samaritan woman.</description>
+        <styleUrl>#ministryHub</styleUrl>
+        <Point><coordinates>35.2858,32.2094,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Jerusalem (Judea Capital)</name>
+        <description>The structural center of Passion Week, the Temple, and the crucifixion/resurrection.</description>
+        <styleUrl>#ministryHub</styleUrl>
+        <Point><coordinates>35.2137,31.7683,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Bethany</name>
+        <description>John 11 - Home of Lazarus, Martha, and Mary; site of the raising of Lazarus.</description>
+        <styleUrl>#ministryHub</styleUrl>
+        <Point><coordinates>35.2575,31.7711,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- Macro Regional Identifiers -->
+    <Folder>
+      <name>Regional Zones</name>
+      <Placemark>
+        <name>REGION: GALILEE</name>
+        <description>The northern sphere characterized by fishing villages and rural farming communities.</description>
+        <Point><coordinates>35.3500,32.8000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>REGION: SAMARIA</name>
+        <description>The central transition corridor situated directly between Judea and Galilee.</description>
+        <Point><coordinates>35.2500,32.2000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>REGION: JUDEA</name>
+        <description>The southern powerhouse containing the administrative capital and rugged wilderness zones.</description>
+        <Point><coordinates>35.1500,31.6000,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>REGION: DECAPOLIS</name>
+        <description>Mark 5:20 - The semi-autonomous league of ten Greek-influenced Gentile city-states east of the Jordan.</description>
+        <Point><coordinates>35.9000,32.6000,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

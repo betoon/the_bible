@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Ancient Biblical Trade Routes</name>
+    <description>The primary commercial and military highways connecting Egypt, Canaan, and Mesopotamia.</description>
+    
+    <!-- Route Styles -->
+    <Style id="viaMarisStyle">
+      <LineStyle>
+        <color>ff0000ff</color> <!-- Bright Red Line -->
+        <width>4</width>
+      </LineStyle>
+    </Style>
+    <Style id="kingsHighwayStyle">
+      <LineStyle>
+        <color>ffffaa00</color> <!-- Cyan/Teal Line -->
+        <width>4</width>
+      </LineStyle>
+    </Style>
+
+    <!-- Key Highway Hub Cities -->
+    <Folder>
+      <name>Trade Hub Cities</name>
+      <Placemark>
+        <name>Gaza</name>
+        <description>The southern gateway where the Via Maris enters Canaan from Egypt.</description>
+        <Point><coordinates>34.4668,31.5016,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Megiddo</name>
+        <description>The strategic choke point guarding the pass through the Carmel mountain range.</description>
+        <Point><coordinates>35.1847,32.5853,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Hazor</name>
+        <description>The massive northern fortified hub guarding the Upper Galilee trading basin.</description>
+        <Point><coordinates>35.5681,33.0178,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Petra</name>
+        <description>The ancient rock-cut Nabatean capital along the southern King's Highway corridor.</description>
+        <Point><coordinates>35.4444,30.3286,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Damascus</name>
+        <description>The grand international terminal where both major highways converge before heading to Mesopotamia.</description>
+        <Point><coordinates>36.2913,33.5138,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- Highway Tracks -->
+    <Folder>
+      <name>Highways</name>
+      
+      <Placemark>
+        <name>Via Maris (Way of the Sea)</name>
+        <description>The crucial international coastal route connecting Egypt to Syria and Mesopotamia.</description>
+        <styleUrl>#viaMarisStyle</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            32.2500,31.2500,0  <!-- Pelusium (Egypt Border) -->
+            34.4668,31.5016,0  <!-- Gaza -->
+            34.7818,32.0853,0  <!-- Joppa Region -->
+            35.1847,32.5853,0  <!-- Megiddo -->
+            35.5752,32.8808,0  <!-- Capernaum (Sea of Galilee) -->
+            35.5681,33.0178,0  <!-- Hazor -->
+            36.2913,33.5138,0  <!-- Damascus -->
+          </coordinates>
+        </LineString>
+      </Placemark>
+
+      <Placemark>
+        <name>The King's Highway</name>
+        <description>Numbers 20:17 - The ancient interior plateau route running east of the Dead Sea and Jordan River.</description>
+        <styleUrl>#kingsHighwayStyle</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            34.9500,29.5500,0  <!-- Ezion-Geber (Gulf of Aqaba) -->
+            35.4444,30.3286,0  <!-- Petra -->
+            35.6500,31.3000,0  <!-- Kir of Moab (Kerak) -->
+            35.9333,31.9500,0  <!-- Rabbah / Amman -->
+            36.0000,32.6500,0  <!-- Ramoth-Gilead -->
+            36.2913,33.5138,0  <!-- Damascus -->
+          </coordinates>
+        </LineString>
+      </Placemark>
+      
+    </Folder>
+  </Document>
+</kml>

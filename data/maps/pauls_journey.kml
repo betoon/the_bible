@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Paul's Missionary Journeys</name>
+    <description>Color-coded expansion tracks of Paul's three distinct missionary expeditions.</description>
+    
+    <!-- Journey Styles -->
+    <Style id="firstJourney">
+      <LineStyle><color>ff0000ff</color><width>4</width></LineStyle> <!-- Red -->
+    </Style>
+    <Style id="secondJourney">
+      <LineStyle><color>ffff0000</color><width>4</width></LineStyle> <!-- Blue -->
+    </Style>
+    <Style id="thirdJourney">
+      <LineStyle><color>ff00ff00</color><width>4</width></LineStyle> <!-- Green -->
+    </Style>
+
+    <!-- 1st Journey Folder -->
+    <Folder>
+      <name>1st Journey (Acts 13-14)</name>
+      <description>Cyprus and Southern Galatia</description>
+      <Placemark>
+        <name>1A. Syrian Antioch</name>
+        <description>The launching base of the Gentile mission.</description>
+        <Point><coordinates>36.1614,36.2022,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>1B. Paphos (Cyprus)</name>
+        <description>Where Paul encounters Elymas the sorcerer.</description>
+        <Point><coordinates>32.4131,34.7720,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>1C. Iconium &amp; Lystra</name>
+        <description>Galatian cities where Paul faces intense stoning and persecution.</description>
+        <Point><coordinates>32.4932,37.8749,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>1st Journey Route Line</name>
+        <styleUrl>#firstJourney</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            36.1614,36.2022,0
+            32.4131,34.7720,0
+            30.6882,36.8850,0
+            32.4932,37.8749,0
+            36.1614,36.2022,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+
+    <!-- 2nd Journey Folder -->
+    <Folder>
+      <name>2nd Journey (Acts 15:36-18:22)</name>
+      <description>Into Europe and Greece</description>
+      <Placemark>
+        <name>2A. Troas</name>
+        <description>Location of the vision of the 'Macedonian Call'.</description>
+        <Point><coordinates>26.1917,39.7461,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>2B. Philippi</name>
+        <description>First European church planted; conversion of Lydia.</description>
+        <Point><coordinates>24.2878,41.0119,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>2C. Athens &amp; Corinth</name>
+        <description>Preaching at the Areopagus and an 18-month strategic ministry base.</description>
+        <Point><coordinates>22.9444,37.9386,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>2nd Journey Route Line</name>
+        <styleUrl>#secondJourney</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            36.1614,36.2022,0
+            34.8916,36.9164,0
+            26.1917,39.7461,0
+            24.2878,41.0119,0
+            22.9444,37.9386,0
+            36.1614,36.2022,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+
+    <!-- 3rd Journey Folder -->
+    <Folder>
+      <name>3rd Journey (Acts 18:23-21:17)</name>
+      <description>Ephesus Focus and Return</description>
+      <Placemark>
+        <name>3A. Ephesus</name>
+        <description>Major 3-year strategic revival center and clash with silversmiths.</description>
+        <Point><coordinates>27.3414,37.9408,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>3B. Miletus</name>
+        <description>Paul's emotional farewell address to the Ephesian elders.</description>
+        <Point><coordinates>27.2764,37.5308,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>3rd Journey Route Line</name>
+        <styleUrl>#thirdJourney</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            36.1614,36.2022,0
+            27.3414,37.9408,0
+            22.9444,37.9386,0
+            27.2764,37.5308,0
+            35.2137,31.7683,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
